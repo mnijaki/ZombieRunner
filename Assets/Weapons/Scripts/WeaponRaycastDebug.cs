@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponRaycastDebug : MonoBehaviour {
+public class WeaponRaycastDebug:MonoBehaviour
+{
 
   public float weaponRange = 50f;                       // Distance in Unity units over which the Debug.DrawRay will be drawn
 

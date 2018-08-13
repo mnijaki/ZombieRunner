@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 // Dsiplay weapon.
-public class WeaponDisplayer : MonoBehaviour
+public class WeaponDisplayer:MonoBehaviour
 {
   // ****************************************************************************************************************** \\
   //                                            Private fields                  
@@ -20,7 +20,7 @@ public class WeaponDisplayer : MonoBehaviour
   #region
 
   // Initialization.
-  private void Start ()
+  private void Start()
   {
     // Get weapon type.
     this.weapon_type=this.GetComponent<Weapon>().weapon_type;

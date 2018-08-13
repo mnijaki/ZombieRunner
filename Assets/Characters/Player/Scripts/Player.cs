@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
     // Get health.
     this.health=this.GetComponent<PlayerHealth>();
     // Get weapon.
-    this.weapon=this.GetComponent<Weapon>();
+    this.weapon=GameObject.FindObjectOfType<Weapon>();
     // Get first person controller.
     this.fpc=this.GetComponent<FirstPersonController>();
 } // End of Start

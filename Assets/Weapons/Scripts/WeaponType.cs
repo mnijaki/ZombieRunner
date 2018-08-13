@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 // Weapon type.
-[CreateAssetMenu(fileName = "New weapon type", menuName = "Weapon type")]
-public class WeaponType : ScriptableObject
+[CreateAssetMenu(fileName = "New weapon type",menuName = "Weapon type")]
+public class WeaponType:ScriptableObject
 {
   // ****************************************************************************************************************** \\
   //                                            Public fields                  
@@ -21,15 +21,12 @@ public class WeaponType : ScriptableObject
   [Range(0.1F,5.0F)]
   [Tooltip("Fire rate (time in seconds how long firing one shell take)")]
   public float fire_rate = 0.1F;
-  // Fire rate (number of shells fired per second).
-  [Tooltip("Fire rate (time in seconds how long firing one shell take)")]
-  public float fire_rate2 = 0.1F;
   // Shell velocity (in meters).
   [Range(50,500)]
   [Tooltip("Shell velocity (in meters)")]
   public int shell_velocity = 50;
-  // Clip size.
-  [Range(1,100)]
+  // Clip size (0 means no clip).
+  [Range(0,100)]
   [Tooltip("Clip size")]
   public int clip_size = 12;
   // Initial ammo.

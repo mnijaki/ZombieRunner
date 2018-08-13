@@ -3164,9 +3164,8 @@ GameObject:
   - component: {fileID: 185905347}
   - component: {fileID: 185905350}
   - component: {fileID: 185905352}
-  - component: {fileID: 185905348}
   - component: {fileID: 185905349}
-  - component: {fileID: 185905353}
+  - component: {fileID: 185905348}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -3195,10 +3194,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 185905346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24e34f9c7858a1b4f806c166419f4835, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e9cd923c646d024eb33bb73c1f9d498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon_type: {fileID: 11400000, guid: cf2c01cf556cb6b43a3bb1fadf6293bd, type: 2}
 --- !u!114 &185905349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,9 +3205,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 185905346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddc65bc83bbd4a428c1af0109706f88, type: 3}
+  m_Script: {fileID: 11500000, guid: ae9081e1a5c05904ab77e16a68e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon_type: {fileID: 11400000, guid: 40321dab4329fbb4a9fde2d79c5ec0c6, type: 2}
 --- !u!82 &185905350
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3334,8 +3333,14 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0.0051956177
-        value: 0.08870888
+        time: 0
+        value: 0.45968056
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9869978
+        value: 0.08064419
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3378,18 +3383,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &185905353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 185905346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d5be4a5902bca4ab1015fe320f96c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponRange: 50
 --- !u!1 &189386990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,8 +3533,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114244474895535572, guid: ca5410e88e3ccbd469217216f561e64b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54094260163995904, guid: ca5410e88e3ccbd469217216f561e64b, type: 2}
+    - {fileID: 114244474895535572, guid: ca5410e88e3ccbd469217216f561e64b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ca5410e88e3ccbd469217216f561e64b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &192812471
@@ -5933,12 +5932,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 354486279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -419.5, y: -229.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 468591080}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &359535316
 Prefab:
@@ -7133,6 +7132,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1020431081}
+  - {fileID: 354486282}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14306,7 +14306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.022058798, g: 0.6397059, b: 0, a: 1}
+  m_Color: {r: 0.6691177, g: 0, b: 0.6229717, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
