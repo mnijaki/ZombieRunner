@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 114643299632280036}
   - component: {fileID: 114601928458589154}
   - component: {fileID: 114491909023006442}
+  - component: {fileID: 114698838230085306}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: enemy
@@ -2610,6 +2611,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3d7c987c35af34ba91a40d9dbc1b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  min_speed: 0.5
+  max_speed: 1.5
+  min_angular_speed: 80
+  max_angular_speed: 120
+  min_acceleration: 5
+  max_acceleration: 10
 --- !u!114 &114601928458589154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2641,6 +2649,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114698838230085306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464841523736314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0127946093f45e438359a494d0fb1b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  hit_clip: {fileID: 8300000, guid: 2466a32694b72c147b7500e888a0e274, type: 3}
+  death_clip: {fileID: 8300000, guid: b63d2ac907218984a9ebe568f1ed4f0c, type: 3}
 --- !u!136 &136088395804718216
 CapsuleCollider:
   m_ObjectHideFlags: 1

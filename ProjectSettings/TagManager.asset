@@ -14,6 +14,7 @@ TagManager:
   - Fire
   - pause_menu
   - mini_map
+  - weapon_end
   layers:
   - Default
   - TransparentFX

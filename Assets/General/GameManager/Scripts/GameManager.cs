@@ -8,9 +8,9 @@ using System.Linq;
 // Game manager.
 public class GameManager : MonoBehaviour
 {
-  // *****************************************  
-  //             Public fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                                Public fields                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Single static instance of GameManager (Singelton pattern).
@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Serialized fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Serialized fields                  
+  // ****************************************************************************************************************** \\
   #region
     
   // Player.
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
   private int enemies_to_spawn=7;
   // Time of enemies to spawn at start of the level.
   [SerializeField]
-  [Tooltip("Time of enemies to spawn at start of the level")]
   [Range(0.0F,15.0F)]
+  [Tooltip("Time of enemies to spawn at start of the level")]  
   private int enemies_time_to_spawn=3;
   // Fade panel.
   [SerializeField]
@@ -64,13 +64,18 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   [Tooltip("Mini map")]
   private GameObject mini_map;
+  // Enemy body dissapear time.
+  [SerializeField]
+  [Range(0.0F,30.0F)]
+  [Tooltip("Enemy body dissapear time.")]
+  private float enemy_body_dissapear_time=5.0F;
 
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                                Private fields                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Single static instance of GameManager (Singelton pattern).
@@ -85,9 +90,9 @@ public class GameManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Public methods                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                                Public methods                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Event - on helicpoter was called.
@@ -103,13 +108,18 @@ public class GameManager : MonoBehaviour
     }
   } // End OnHeliWasCalled
 
+  // Event - on player boarded helicopter.
+  public void OnPlayerBoardedHeli(float heli_hor_movement_time)
+  {
+    // End level.
+    StartCoroutine(LvlEnd(heli_hor_movement_time+2.0F));
+  } // End of OnPlayerBoardedHeli
+
   // Event - on player death.
   public IEnumerator OnPlayerDeath(float duration)
   {
     // Change flag.
-    Instance.is_lvl_changing=true;
-    // Disable player controller (so player cannot move after being killed).
-    Instance.player.GetComponent<FirstPersonController>().enabled=false;
+    Instance.is_lvl_changing=true;    
     // Yield (this yield exist to give necessery time to the calling script to perform it duties).
     yield return new WaitForSeconds(duration);
     // ------------------------------------------------------------------
@@ -136,19 +146,27 @@ public class GameManager : MonoBehaviour
     LevelManager.Instance.LoseLoad(0.0F);
   } // End of OnPlayerDeath
 
-  // Event - on player boarded helicopter.
-  public void OnPlayerBoardedHeli(float heli_hor_movement_time)
+  // Event - on enemy death.
+  public IEnumerator OnEnemyDeath(float duration, GameObject enemy)
   {
-    // End level.
-    StartCoroutine(LvlEnd(heli_hor_movement_time+2.0F));
-  } // End of OnPlayerBoardedHeli
+    // Yield (this yield exist to give necessery time to the calling script to perform it duties).
+    yield return new WaitForSeconds(duration);
+    // Yield for time of dissapearing enemy body.
+    yield return new WaitForSeconds(this.enemy_body_dissapear_time);
+    // Destroy enemy game object.
+    GameObject.Destroy(enemy);
+
+    // TO_DO: pooling (spawn at point)
+    //        reset valuesenable (nav mesh, voice)
+
+  } // End of OnEnemyDeath
 
   #endregion
 
 
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                                Private methods                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Awake (used to initialize any variables or game state before the game starts).
@@ -245,11 +263,10 @@ public class GameManager : MonoBehaviour
     // Initialization of enemies.
     EnemiesInit();
     // ---------------------------------------------------------------------------
-    // Enable player.
+    // Respawn player.
     // ---------------------------------------------------------------------------
-    // Enable player controler (was disabled so he cannot move while level info
-    // was being showed).
-    Instance.player.GetComponent<FirstPersonController>().enabled=true;    
+    // Respawn player at random spawn point.
+    Instance.player.Respawn();
     // ---------------------------------------------------------------------------
     // Fade in.
     // ---------------------------------------------------------------------------   

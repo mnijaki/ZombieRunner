@@ -4,9 +4,9 @@ using System.Collections;
 // Player voice manager.
 public class PlayerVoice : MonoBehaviour
 {
-  // *****************************************  
-  //             Public fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Public fields                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Suitable landing area for helicopter found clip.
@@ -15,18 +15,21 @@ public class PlayerVoice : MonoBehaviour
   // Radio call for helicopter clip.
   [Tooltip("Radio call for helicopter clip")]
   public AudioClip heli_radio_call_clip;
-  // Clear clip.
-  [Tooltip("Clear clip")]
+  // Player clear clip.
+  [Tooltip("Player clear clip")]
   public AudioClip clear_clip;
+  // Player hit clip.
+  [Tooltip("Player hit clip")]
+  public AudioClip hit_clip;
   // Player death clip.
   [Tooltip("Player death clip")]
-  public AudioClip player_death_clip;
+  public AudioClip death_clip;
 
   #endregion
 
-  // *****************************************  
-  //             Serialized fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                            Serialized fields                  
+  // ****************************************************************************************************************** \\
   #region
 
   // What happened clip.
@@ -37,9 +40,9 @@ public class PlayerVoice : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Private fields                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Audio source.
@@ -48,9 +51,9 @@ public class PlayerVoice : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Public methods                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Public methods                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Play audio clip on 'voice' audio source.
@@ -62,9 +65,9 @@ public class PlayerVoice : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Private methods                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Initialization.

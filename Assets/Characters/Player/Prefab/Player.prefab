@@ -62,6 +62,8 @@ GameObject:
   - component: {fileID: 82027002478448304}
   - component: {fileID: 114539755886894970}
   - component: {fileID: 114190316309907282}
+  - component: {fileID: 114142182949720284}
+  - component: {fileID: 114244474895535572}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -400,6 +402,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114142182949720284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779611346555672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98641c2da7a66764683aee2f5e6ac696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_health: 100
 --- !u!114 &114190316309907282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,9 +425,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85489825635afd342a27a22e5459a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initial_walk_speed: 7
+  initial_run_speed: 14
+  initial_jump_speed: 10
   heli_prefab: {fileID: 114001594573342192, guid: 63c92d7ee7535f5409a04c90ceef8471,
     type: 2}
   heli_starting_point: {fileID: 0}
+  reset_speed: 0
+--- !u!114 &114244474895535572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779611346555672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e34f9c7858a1b4f806c166419f4835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114298833614270888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -491,8 +520,8 @@ MonoBehaviour:
       m_RotationOrder: 4
   m_UseHeadBob: 1
   m_HeadBob:
-    HorizontalBobRange: 0.3
-    VerticalBobRange: 0.3
+    HorizontalBobRange: 0.2
+    VerticalBobRange: 0.2
     Bobcurve:
       serializedVersion: 2
       m_Curve:
@@ -555,7 +584,8 @@ MonoBehaviour:
   heli_radio_call_clip: {fileID: 8300000, guid: 28edfde9fc605d74f914208e2ce4604f,
     type: 3}
   clear_clip: {fileID: 8300000, guid: eadd994c120306343bc8806d06c87c3a, type: 3}
-  player_death_clip: {fileID: 8300000, guid: 4f15840f4ed2b4548873bfde171a5109, type: 3}
+  hit_clip: {fileID: 8300000, guid: e6c0b229781358247b924f9b35bb698a, type: 3}
+  death_clip: {fileID: 8300000, guid: 4f15840f4ed2b4548873bfde171a5109, type: 3}
   what_happened_clip: {fileID: 8300000, guid: 6753570c49d78aa42b15d0e4246693bb, type: 3}
 --- !u!124 &124383269571706404
 Behaviour:

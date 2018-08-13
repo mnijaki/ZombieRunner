@@ -1,14 +1,32 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 // Player manager.
+[RequireComponent(typeof(PlayerHealth))]
+[RequireComponent(typeof(Weapon))]
 public class Player : MonoBehaviour
 {
-  // *****************************************  
-  //             Serialized fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                            Serialized fields                  
+  // ****************************************************************************************************************** \\
   #region
 
+  // Initial walk speed of player.
+  [SerializeField]
+  [Range(1.0F,20.0F)]
+  [Tooltip("Initial walk speed of player")]
+  private float initial_walk_speed=7.0F;
+  // Initial run speed of player.
+  [SerializeField]
+  [Range(1.0F,30.0F)]
+  [Tooltip("Initial run speed of player")]
+  private float initial_run_speed=14.0F;
+  // Initial jump speed of player.
+  [SerializeField]
+  [Range(1.0F,20.0F)]
+  [Tooltip("Initial jump speed of player")]
+  private float initial_jump_speed = 10.0F;
   // Helicopter prefab.
   [SerializeField]
   [Tooltip("Helicopter prefab")]
@@ -17,32 +35,64 @@ public class Player : MonoBehaviour
   [SerializeField]
   [Tooltip("Helicopter starting point")]
   private Transform heli_starting_point;
+  // TO_DO:do usunieca
+  [SerializeField]
+  private bool reset_speed = false;
 
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ****************************************************************************************************************** \\
+  //                                              Private fields                  
+  // ****************************************************************************************************************** \\
   #region
-    
+
   // Array of spawn points.
   private Transform[] spawn_points;
   // Player voice.
   private PlayerVoice player_voice;
+  // Player health.
+  private PlayerHealth health;
+  // Player weapon.
+  private Weapon weapon;
+  // First person controller.
+  private FirstPersonController fpc;
   // Flag if landing area was found.
   private bool landing_area_found = false;
   // Flag if helicopter was called.
   private bool heli_was_called = false;
-  // Info if player is dead.
-  private bool is_dead = false;
 
   #endregion
 
 
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+
+  // ****************************************************************************************************************** \\
+  //                                              Public methods                  
+  // ****************************************************************************************************************** \\
+  #region
+
+  // Respawn player at random spawn point.
+  public void Respawn()
+  {
+    // Enable player controler (was disabled so he cannot move while level info was being showed).
+    this.GetComponent<FirstPersonController>().enabled=true;
+    // Respawn player at spawn point. 
+    this.transform.position=this.spawn_points[Random.Range(1,this.spawn_points.Length)].transform.position;
+    // Reset flags.    
+    this.landing_area_found=false;
+    this.heli_was_called=false;
+    // Reset health.
+    this.health.HealthReset();
+    // Actualize speed of player.
+    SpeedAct();
+  } // End of Respawn
+
+  #endregion
+
+
+  // ****************************************************************************************************************** \\
+  //                                              Private methods                  
+  // ****************************************************************************************************************** \\
   #region
 
   // Initialization.
@@ -52,9 +102,13 @@ public class Player : MonoBehaviour
     this.spawn_points=GameObject.FindGameObjectWithTag("player_spawn_points").GetComponentsInChildren<Transform>();
     // Get voice.
     this.player_voice=this.transform.Find("PlayerVoice").GetComponent<PlayerVoice>();
-    // Respawn player at random spawn point.
-    Respawn();
-  } // End of Start
+    // Get health.
+    this.health=this.GetComponent<PlayerHealth>();
+    // Get weapon.
+    this.weapon=this.GetComponent<Weapon>();
+    // Get first person controller.
+    this.fpc=this.GetComponent<FirstPersonController>();
+} // End of Start
 
   // Update (called once per frame).
   private void Update()
@@ -69,18 +123,26 @@ public class Player : MonoBehaviour
       // Call helicopter with delay.
       StartCoroutine(HeliCallWithDelay(this.player_voice.heli_radio_call_clip.length+2.0F));
     }
+    // TO_DO: do usuniecia
+    if(this.reset_speed)
+    {
+      this.reset_speed=false;
+      SpeedAct();
+    }
   } // End of Update
 
-  // Respawn player at random spawn point.
-  private void Respawn()
+  // Actualize speed of player.
+  private void SpeedAct()
   {
-    // Respawn player at spawn point. 
-    this.transform.position=this.spawn_points[Random.Range(1,this.spawn_points.Length)].transform.position;
-    // Reset flags.
-    this.is_dead=false;
-    this.landing_area_found=false;
-    this.heli_was_called=false;
-  } // End of Respawn
+    // Get speed factor (max carrying weight of player is 100 kg).
+    float factor = (100.0F-this.weapon.WeightGet()) / 100.0F;
+    // Actualize walk speed.
+    this.fpc.WalkSpeedSet(this.initial_walk_speed * factor);
+    // Actualize run speed.
+    this.fpc.RunSpeedSet(this.initial_run_speed * factor);
+    // Actualize jump speed.
+    this.fpc.JumpSpeedSet(this.initial_jump_speed * factor);
+  } // End of SpeedAct
 
   // On colission.
   private void OnTriggerEnter(Collider other)
@@ -101,15 +163,11 @@ public class Player : MonoBehaviour
       // Exit from function.
       return;
     }
-    // If player is not dead and collision with enemy.
-    if((!this.is_dead)&&(other.CompareTag("enemy")))
+    // If collision with enemy.
+    if(other.CompareTag("enemy"))
     {
-      // Change flag.
-      this.is_dead=true;
-      // Play player death clip.
-      this.player_voice.VoicePlay(this.player_voice.player_death_clip,0.0F);
-      // Send message about player death.
-      StartCoroutine(GameManager.Instance.OnPlayerDeath(this.player_voice.player_death_clip.length));
+      // Decrease health.
+      this.health.HealthDecrease(other.GetComponent<Enemy>().DamageGet());
     }
   } // End of OnTriggerEnter
 
