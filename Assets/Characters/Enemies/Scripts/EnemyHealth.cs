@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 // Enemy health characteristic.
 public class EnemyHealth : MonoBehaviour
@@ -21,6 +22,10 @@ public class EnemyHealth : MonoBehaviour
   [SerializeField]
   [Tooltip("Enemy death clip")]
   private AudioClip death_clip;
+  // Enemy blood particles system.
+  [SerializeField]
+  [Tooltip("Enemy blood particles system")]
+  private ParticleSystem blood;
 
   #endregion
 
@@ -46,8 +51,8 @@ public class EnemyHealth : MonoBehaviour
   {
     // Decrease health.
     this.health-=val;
-    // TO_DO: add blood particles.
-    //
+    // Play blood effect.
+    this.blood.Play();
     // If health < 1.
     if(this.health<1)
     {
@@ -55,19 +60,30 @@ public class EnemyHealth : MonoBehaviour
       AudioSource.PlayClipAtPoint(this.death_clip,this.transform.position);
       // Disable audio source.
       this.audio_source.enabled=false;
+      // Disable AI.
+      this.GetComponent<AICharacterControl>().enabled=false;
+      // Disable third person.
+      this.GetComponent<ThirdPersonCharacter>().enabled=false;
+      // Disable enemy.
+      this.GetComponent<Enemy>().enabled=false;
       // Disable navmesh.
       this.GetComponent<NavMeshAgent>().enabled=false;
+      // Disable rigidbody.
+      this.GetComponent<Rigidbody>().isKinematic=true;
+      // Time of death animation.
+      float time_of_death_anim = 0.0F;
 
-      // TO_DO:  play death anim (mayby adding hight gravity to rigidbdy will be sufficient for anim)
-      //         corutine should have duration of death animation (voice is not necessery because is set as clip at point). 
+      // TO_DO:  
+      //         corutine should have duration of death animation (voice is not necessery because is set as clip at point).
+      //         this.GetComponent<Animator>().SetTrigger("Death");
       // Send message about enemy death.
-      StartCoroutine(GameManager.Instance.OnEnemyDeath(5,this.gameObject));
+      StartCoroutine(GameManager.Instance.OnEnemyDeath(time_of_death_anim,this.gameObject));
     }
     // If health >= 1.
     else
     {
       // Play hit clip.
-      AudioSource.PlayClipAtPoint(this.hit_clip,this.transform.position);
+      AudioSource.PlayClipAtPoint(this.hit_clip,this.transform.position);      
     }
   } // End of HealthDecrease
 

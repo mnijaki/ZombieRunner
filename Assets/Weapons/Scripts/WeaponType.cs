@@ -9,6 +9,18 @@ public class WeaponType:ScriptableObject
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
+  // Model.
+  [Tooltip("Model")]
+  public GameObject model;
+  // Transform.
+  [Tooltip("Transform")]
+  public Transform trans;
+  // Shell projectile.
+  [Tooltip("Shell projectile")]
+  public GameObject shell;
+  // Name of weapon type.
+  [Tooltip("Weapon name")]
+  public string weapon_name = "Laser";
   // Weapon damage.
   [Range(10,500)]
   [Tooltip("Weapon damage")]
@@ -21,6 +33,12 @@ public class WeaponType:ScriptableObject
   [Range(0.1F,5.0F)]
   [Tooltip("Fire rate (time in seconds how long firing one shell take)")]
   public float fire_rate = 0.1F;
+  // Flag if weapon is able to burst fire.
+  [Range(0.1F,5.0F)]
+  [Tooltip("Flag if weapon is able to burst fire")]
+  public bool is_burst_able = false;
+  // Weapon sound.
+  public AudioClip sound;
   // Shell velocity (in meters).
   [Range(50,500)]
   [Tooltip("Shell velocity (in meters)")]
@@ -45,27 +63,6 @@ public class WeaponType:ScriptableObject
   [Range(0.1F,1.0F)]
   [Tooltip("Laser draw duration")]
   public float laser_draw_duration = 0.07F;
-
-  #endregion
-
-
-  // ---------------------------------------------------------------------------------------------------------------------
-  // Serialized fields                  
-  // ---------------------------------------------------------------------------------------------------------------------
-  #region
-
-  // Model.
-  [SerializeField]
-  [Tooltip("Model")]
-  public GameObject model;
-  // Transform.
-  [SerializeField]
-  [Tooltip("Transform")]
-  public Transform trans;
-  // Shell projectile.
-  [SerializeField]
-  [Tooltip("Shell projectile")]
-  private GameObject projectile;
 
   #endregion
 

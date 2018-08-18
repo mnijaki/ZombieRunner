@@ -34,6 +34,8 @@ public class Weapon:MonoBehaviour
   private Camera fpc_camera;
   // Float to store the time the player will be allowed to fire again, after firing.
   private float next_fire_time;
+  // Animator.
+  private Animator anim;
 
 
   #endregion
@@ -70,6 +72,8 @@ public class Weapon:MonoBehaviour
     this.audio_source = GetComponent<AudioSource>();
     // Get first person camera.
     this.fpc_camera = GetComponentInParent<Camera>();
+    // Get animator.
+    this.anim=this.gameObject.GetComponentInChildren<Animator>();
   } // End of Start
 
   // Update (called once per frame).
@@ -88,8 +92,14 @@ public class Weapon:MonoBehaviour
       this.next_fire_time = Time.time + this.weapon_type.fire_rate;
       // Play fire audio.
       this.audio_source.Play();
-      // Draw laser line on and off.
-      StartCoroutine(FireEffectDraw());
+
+      // MN:2018/08/18: If you have problems with correct drawing of laser that could happend becaouse of phantom
+      // game object with given tag. If thath so just run 'DebugDestroyObjectsWithTag()' method.
+      // Secon option is to replace correct line of code with this down below:
+      // this.laser_line.SetPosition(0,this.transform.Find("LaserGun(Clone)").transform.Find("Model").transform.Find("WeaponEnd").transform.position);
+
+      // TO_DO: add porjectiles, burs fire, if waeapon changed, change weapon type, change laser draw duration, weapon_end...
+
       // Create a vector at the center of camera's viewport.
       Vector3 fpc_camera_center = this.fpc_camera.ViewportToWorldPoint(new Vector3(0.5F,0.5F,0.0F));
       // Declare a raycast hit to store information about what raycast has hit.
@@ -118,6 +128,8 @@ public class Weapon:MonoBehaviour
         // Set the end of the line to a position directly in front of the camera at the distance of weapon range.
         this.laser_line.SetPosition(1,fpc_camera_center + (this.fpc_camera.transform.forward*this.weapon_type.range));
       }
+      // Draw laser line on and off.
+      StartCoroutine(FireEffectDraw());
     }
   } // End of Update
 
@@ -126,13 +138,30 @@ public class Weapon:MonoBehaviour
   {
     // Turn on our line renderer.
     this.laser_line.enabled = true;
+    // Run fire animation.
+    this.anim.SetTrigger("fire");
     // Wait for seconds.
     yield return this.laser_draw_duration;
     // Turn off our line renderer.
     this.laser_line.enabled = false;
   } // End of FireEffectDraw
 
-  // TO_DO: if waeapon changed, change weapon type, change laser draw duration, weapon_end...
+  // Destroy objects tagged by given string (Only for purpouse of debug. Unity have some bug with animation and
+  // prefab with tags - it will create non visable in hierarchy game object with tag. If that happens jus run this
+  // function and all should works fine).
+  private void DebugDestroyObjectsWithTag(string tag)
+  {
+    // Get objects.
+    var objs = GameObject.FindGameObjectsWithTag(tag);
+    // Loop over objects.
+    for(int i=objs.Length-1; i>-1; i--)
+    {
+      // Write message to console.
+      Debug.Log("Destroying object ="+objs[i]);
+      // Destroy object
+      Destroy(objs[i]);
+    }
+  } // End of DebugDestroyObjectsWithTag
 
   #endregion
 

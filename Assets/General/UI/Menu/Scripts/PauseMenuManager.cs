@@ -60,6 +60,8 @@ public class PauseMenuManager : MonoBehaviour
   private bool is_paused = false;
   // Mini map.
   private GameObject mini_map;
+  // Initial fixed delta time.
+  private float initial_fixed_delta_time;
 
   #endregion
 
@@ -88,6 +90,8 @@ public class PauseMenuManager : MonoBehaviour
     // Delegate functions to handle buttons events.
     Instance.continue_btn.onClick.AddListener(delegate { OnContinue(); });
     Instance.quit_btn.onClick.AddListener(delegate { OnQuit(); });
+    // Get initial fixed delta time.
+    this.initial_fixed_delta_time = Time.fixedDeltaTime;
   } // End of Start
 
   // Continue game.
@@ -129,6 +133,7 @@ public class PauseMenuManager : MonoBehaviour
       this.mini_map.SetActive(true);
     }
     // Unpause game time.
+    Time.fixedDeltaTime = this.initial_fixed_delta_time;
     Time.timeScale=1.0F;
     // Change flag.
     Instance.is_paused=false;
@@ -176,6 +181,7 @@ public class PauseMenuManager : MonoBehaviour
     Instance.is_paused=true;
     // Puase game time.
     Time.timeScale=0.0F;
+    Time.fixedDeltaTime = 0;
     // If mini map is not null (could be not activated yet).
     if(Instance.mini_map!=null)
     {

@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
   [SerializeField]
   [Tooltip("Helicopter starting point")]
   private Transform heli_starting_point;
+  // Player weapon game object.
+  [SerializeField]
+  [Tooltip("layer weapon game object")]
+  private GameObject weapon_go;
   // TO_DO:do usunieca
   [SerializeField]
   private bool reset_speed = false;
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour
   // Player voice.
   private PlayerVoice player_voice;
   // Player health.
-  private PlayerHealth health;
+  private PlayerHealth health;  
   // Player weapon.
   private Weapon weapon;
   // First person controller.
@@ -69,6 +73,12 @@ public class Player : MonoBehaviour
   // Public methods                  
   // ---------------------------------------------------------------------------------------------------------------------
   #region
+
+  // Enable weapon.
+  public void WeaponEnable()
+  {
+    this.weapon_go.SetActive(true);
+  } // End of WeaponEnable
 
   // Respawn player at random spawn point.
   public void Respawn()
@@ -104,7 +114,7 @@ public class Player : MonoBehaviour
     // Get health.
     this.health=this.GetComponent<PlayerHealth>();
     // Get weapon.
-    this.weapon=GameObject.FindObjectOfType<Weapon>();
+    this.weapon=this.weapon_go.GetComponent<Weapon>();
     // Get first person controller.
     this.fpc=this.GetComponent<FirstPersonController>();
 } // End of Start

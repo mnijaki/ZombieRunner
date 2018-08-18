@@ -11,15 +11,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dfe7c740bf7ef46b5f8d1a5d5c3db6, type: 3}
   m_Name: LaserGun
   m_EditorClassIdentifier: 
-  damage: 10
+  model: {fileID: 1367229687284788, guid: 05ef63a136469a640a6c54241b93dfcb, type: 2}
+  trans: {fileID: 0}
+  shell: {fileID: 0}
+  weapon_name: Laser
+  damage: 30
   range: 100
   fire_rate: 0.3
+  is_burst_able: 0
+  sound: {fileID: 0}
   shell_velocity: 50
   clip_size: 0
   initial_ammo: 1000
   recoil_force: 1
   hit_force: 200
   laser_draw_duration: 0.2
-  model: {fileID: 1367229687284788, guid: 05ef63a136469a640a6c54241b93dfcb, type: 2}
-  trans: {fileID: 0}
-  projectile: {fileID: 0}

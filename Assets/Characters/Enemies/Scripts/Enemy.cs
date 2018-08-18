@@ -98,9 +98,6 @@ public class Enemy : MonoBehaviour
     this.agent.angularSpeed=Random.Range(this.min_angular_speed,this.max_angular_speed);
     // Actualize acceleration.
     this.agent.acceleration=Random.Range(this.min_acceleration,this.max_acceleration);
-
-    // TO_DO: check height
-
   } // End of SpeedAct
 
   #endregion

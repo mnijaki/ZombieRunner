@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   [Tooltip("Mini map")]
   private GameObject mini_map;
+  // Weapon aim.
+  [SerializeField]
+  [Tooltip("Weapon aim")]
+  private GameObject weapon_aim;
   // Enemy body dissapear time.
   [SerializeField]
   [Range(0.0F,30.0F)]
@@ -155,9 +159,10 @@ public class GameManager : MonoBehaviour
     yield return new WaitForSeconds(this.enemy_body_dissapear_time);
     // Destroy enemy game object.
     GameObject.Destroy(enemy);
+    // Spawn new enemy.
+    EnemySpawn();
 
-    // TO_DO: pooling (spawn at point)
-    //        reset valuesenable (nav mesh, voice)
+    // TO_DO: pooling (spawn at point) with correct reset of enemy values (eg.nav mesh, etc).
 
   } // End of OnEnemyDeath
 
@@ -238,12 +243,19 @@ public class GameManager : MonoBehaviour
     // Spawn enemies.
     for(int i=0; i<Instance.enemies_to_spawn; i++)
     {
-      Instantiate(Instance.enemies_prefabs[Random.Range(0,Instance.enemies_prefabs.Length)],
+      // Spawn enemy.
+      EnemySpawn();
+    }
+  } // End of EnemiesSpawnWithDelay
+
+  // Spawn enemy.
+  private void EnemySpawn()
+  {
+    Instantiate(Instance.enemies_prefabs[Random.Range(0,Instance.enemies_prefabs.Length)],
                   Instance.enemies_spawn_points[Random.Range(0,Instance.enemies_spawn_points.Length)].position,
                   Quaternion.identity,
                   Instance.enemies_parent).GetComponent<AICharacterControl>().target=Instance.player.transform;
-    }
-  } // End of EnemiesSpawnWithDelay
+  } // End of EnemySpawn
 
   // Start game.
   private IEnumerator StartGame(float duration)
@@ -262,6 +274,10 @@ public class GameManager : MonoBehaviour
     LandingAreaInit();
     // Initialization of enemies.
     EnemiesInit();
+    // Enable player weapon.
+    this.player.WeaponEnable();
+    // Enable player weapon aim.
+    this.weapon_aim.SetActive(true);
     // ---------------------------------------------------------------------------
     // Respawn player.
     // ---------------------------------------------------------------------------
