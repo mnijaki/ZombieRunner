@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62dfe7c740bf7ef46b5f8d1a5d5c3db6, type: 3}
-  m_Name: Laser
+  m_Name: LaserGun
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
@@ -18,7 +18,8 @@ MonoBehaviour:
   clip_size: 0
   initial_ammo: 1000
   recoil_force: 1
-  hit_force: 500
+  hit_force: 200
   laser_draw_duration: 0.2
-  model: {fileID: 100008, guid: a71db0f05c28dbd48be777241911ffe2, type: 2}
+  model: {fileID: 1367229687284788, guid: 05ef63a136469a640a6c54241b93dfcb, type: 2}
+  trans: {fileID: 0}
   projectile: {fileID: 0}
