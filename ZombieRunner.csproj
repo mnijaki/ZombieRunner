@@ -243,6 +243,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\_Imported\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -288,6 +295,29 @@
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\AxisRotator.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\DemoScene1.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\DemoScene2.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Camera\RainCameraController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Common\DropTrail.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Common\RainBehaviourBase.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Common\RainDrawer.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Common\RainDrawerContainer.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Common\RainDropTools.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Misc\BloodRainCameraController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Misc\FpsDisplay.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FlowRain\FlowRainBehaviour.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FlowRain\FlowRainController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FlowRain\FlowRainVariables.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FrictionFlowRain\FrictionFlowRainBehaviour.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FrictionFlowRain\FrictionFlowRainController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\FrictionFlowRain\FrictionFlowRainVariables.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\SimpleRain\SimpleRainBehaviour.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\SimpleRain\SimpleRainController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\SimpleRain\SimpleRainVariables.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\StaticRain\StaticRainBehaviour.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\StaticRain\StaticRainController.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\RainBehaviours\StaticRain\StaticRainVariables.cs" />
     <Compile Include="Assets\_Imported\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\_Imported\Standard Assets\Cameras\Scripts\AutoCam.cs" />
     <Compile Include="Assets\_Imported\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
@@ -426,6 +456,7 @@
     <None Include="Assets\General\UI\Menu\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Weapons\Models\MachineGuns\Shader\BDCS.shader" />
     <None Include="Assets\Weapons\Models\MachineGuns\documentation.txt" />
+    <None Include="Assets\_Imported\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\_Imported\Lighting\Shaders\DistanceFade.shader" />
     <None Include="Assets\_Imported\Lighting\Shaders\TerrainSurface.shader" />
     <None Include="Assets\_Imported\Lighting\Shaders\WavingGrass.shader" />
@@ -470,6 +501,12 @@
     <None Include="Assets\_Imported\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\_Imported\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\_Imported\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\_Imported\RainDropEffect2\ReadMe.txt" />
+    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Deffered).shader" />
+    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Forward).shader" />
+    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Mobile).shader" />
+    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDropGlobal.cginc" />
+    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainNoDistortion.shader" />
     <None Include="Assets\_Imported\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\_Imported\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\_Imported\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

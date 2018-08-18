@@ -25,7 +25,11 @@ public class EnemyHealth : MonoBehaviour
   // Enemy blood particles system.
   [SerializeField]
   [Tooltip("Enemy blood particles system")]
-  private ParticleSystem blood;
+  private ParticleSystem blood_effect;
+  // Enemy death particles system.
+  [SerializeField]
+  [Tooltip("Enemy death particles system")]
+  private ParticleSystem blood_death_effect;
 
   #endregion
 
@@ -52,10 +56,12 @@ public class EnemyHealth : MonoBehaviour
     // Decrease health.
     this.health-=val;
     // Play blood effect.
-    this.blood.Play();
+    this.blood_effect.Play();
     // If health < 1.
     if(this.health<1)
     {
+      // Play blood death effect.
+      this.blood_death_effect.Play();
       // Play death clip.
       AudioSource.PlayClipAtPoint(this.death_clip,this.transform.position);
       // Disable audio source.
@@ -70,8 +76,8 @@ public class EnemyHealth : MonoBehaviour
       this.GetComponent<NavMeshAgent>().enabled=false;
       // Disable rigidbody.
       this.GetComponent<Rigidbody>().isKinematic=true;
-      // Time of death animation.
-      float time_of_death_anim = 0.0F;
+      // Time of death animation (now only for purpose of blood death effect).
+      float time_of_death_anim = 0.5F;
 
       // TO_DO:  
       //         corutine should have duration of death animation (voice is not necessery because is set as clip at point).

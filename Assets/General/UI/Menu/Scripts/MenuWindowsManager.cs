@@ -6,9 +6,9 @@ using System.Collections;
 // Menu windows manager.
 public class MenuWindowsManager:MonoBehaviour
 {
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------
+  // Public fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Animator of initially open window.
@@ -17,9 +17,9 @@ public class MenuWindowsManager:MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Id of animation trigger responsible for opening of panel.
@@ -35,6 +35,10 @@ public class MenuWindowsManager:MonoBehaviour
 
   #endregion
 
+  // ---------------------------------------------------------------------------  
+  // Public methods                  
+  // ---------------------------------------------------------------------------
+  #region
 
   // On enabling panel.
   public void OnEnable()
@@ -76,23 +80,12 @@ public class MenuWindowsManager:MonoBehaviour
     // Set given game object as selected.
     EventSystem.current.SetSelectedGameObject(go);
   }
-
-  static GameObject FindFirstEnabledSelectable(GameObject gameObject)
+  // Reset menu to starting settings.
+  public void Reset()
   {
-    GameObject go = null;
-    Selectable[] selectables = gameObject.GetComponentsInChildren<Selectable>(true);
-    foreach(Selectable selectable in selectables)
-    {
-      // to zwraca false gdy mam disabled caly root of menu
-      if(selectable.IsActive() && selectable.IsInteractable())
-      {
-        go = selectable.gameObject;
-        break;
-      }
-    }
-    //
-    return go;
-  }
+    this.opened_window_anim=null;
+    this.prev_selected_go=null;
+  } // End of Reset
 
   // Close currently opened window.
   public void CurrOpenedWindowClose()
@@ -111,6 +104,30 @@ public class MenuWindowsManager:MonoBehaviour
     //
     this.opened_window_anim = null;
   } // End of CurrOpenedWindowClose
+
+  static GameObject FindFirstEnabledSelectable(GameObject gameObject)
+  {
+    GameObject go = null;
+    Selectable[] selectables = gameObject.GetComponentsInChildren<Selectable>(true);
+    foreach(Selectable selectable in selectables)
+    {
+      // to zwraca false gdy mam disabled caly root of menu
+      if(selectable.IsActive() && selectable.IsInteractable())
+      {
+        go = selectable.gameObject;
+        break;
+      }
+    }
+    //
+    return go;
+  }
+
+  #endregion
+
+  // ---------------------------------------------------------------------------  
+  // Private methods                  
+  // ---------------------------------------------------------------------------
+  #region
 
   // 
   IEnumerator DisablePanelDeleyed(Animator anim)
@@ -141,11 +158,6 @@ public class MenuWindowsManager:MonoBehaviour
     }
   }
 
-  // Reset menu to starting settings.
-  public void Reset()
-  {
-    this.opened_window_anim=null;
-    this.prev_selected_go=null;
-  } // End of Reset
+  #endregion
 
 } // End of MenuWindowsManager

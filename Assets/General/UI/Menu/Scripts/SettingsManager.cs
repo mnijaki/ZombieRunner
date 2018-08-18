@@ -6,9 +6,9 @@ using UnityEngine.PostProcessing;
 // Settings manager.
 public class SettingsManager : MonoBehaviour
 {
-  // ***********************************************************
-  //             Private fields                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   //------------------------------------------
@@ -103,9 +103,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //            Public methods associated with audio                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Public methods associated with audio                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Set default values.
@@ -119,9 +119,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //            Public methods associated with video                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Public methods associated with video                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Set default values.
@@ -134,9 +134,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //          Public methods associated post processing                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Public methods associated post processing                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Set default values.
@@ -165,9 +165,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //          Public methods associated with gameplay                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Public methods associated with gameplay                  
+  // ---------------------------------------------------------------------------
   #region
     
   // Set default values.
@@ -183,9 +183,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //                      Private methods                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization.
@@ -239,9 +239,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //            Private methods associated with audio                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private methods associated with audio                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization of master volume components.
@@ -317,9 +317,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //            Private methods associated with video                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private methods associated with video                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization of quality components.
@@ -371,9 +371,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //          Private methods associated post processing                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private methods associated post processing                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization of post processing components.
@@ -741,9 +741,9 @@ public class SettingsManager : MonoBehaviour
   #endregion
 
 
-  // ***********************************************************
-  //          Private methods associated with gameplay                  
-  // ***********************************************************
+  // ---------------------------------------------------------------------------
+  // Private methods associated with gameplay                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization of difficulty components.

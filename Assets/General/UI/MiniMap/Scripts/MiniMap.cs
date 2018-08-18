@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MiniMap : MonoBehaviour
 {
-  // *****************************************  
-  //             Serialized fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Serialized fields                  
+  // ---------------------------------------------------------------------------
   #region
   
   // Player transform.
@@ -21,9 +21,9 @@ public class MiniMap : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Mini map camera.
@@ -35,9 +35,9 @@ public class MiniMap : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private methods
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private methods
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization.
@@ -71,6 +71,13 @@ public class MiniMap : MonoBehaviour
     pos.y=this.transform.position.y;
     // Actualize position of camera.
     this.transform.position=pos;
+
+    // TO_DO: add clipping of minimap
+    // Actualize position of camera.
+    //float x = Mathf.Clamp(pos.x,2*this.mini_map_camera.orthographicSize,pos.x);
+    //float z = Mathf.Clamp(pos.z,this.mini_map_camera.orthographicSize,pos.z);
+    //this.transform.position=new Vector3(x,pos.y,z);
+
     // If camera shoul rotate
     if(this.is_roatable)
     {

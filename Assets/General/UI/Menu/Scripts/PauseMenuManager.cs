@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class PauseMenuManager : MonoBehaviour
 {
-  // *****************************************  
-  //             Public fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Public fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Single static instance of PauseMenuManager (Singelton pattern).
@@ -22,9 +22,9 @@ public class PauseMenuManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Serialized fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  //  Serialized fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Menu parent.
@@ -45,9 +45,9 @@ public class PauseMenuManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Single static instance of PauseMenuManager (Singelton pattern).
@@ -66,9 +66,9 @@ public class PauseMenuManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Awake (used to initialize any variables or game state before the game starts).
@@ -152,9 +152,9 @@ public class PauseMenuManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Public methods                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Public methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Pause game.

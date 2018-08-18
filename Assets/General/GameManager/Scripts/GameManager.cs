@@ -274,10 +274,6 @@ public class GameManager : MonoBehaviour
     LandingAreaInit();
     // Initialization of enemies.
     EnemiesInit();
-    // Enable player weapon.
-    this.player.WeaponEnable();
-    // Enable player weapon aim.
-    this.weapon_aim.SetActive(true);
     // ---------------------------------------------------------------------------
     // Respawn player.
     // ---------------------------------------------------------------------------
@@ -305,10 +301,14 @@ public class GameManager : MonoBehaviour
     // Disable fade panel.
     Instance.fade_panel.SetActive(false);
     // ---------------------------------------------------------------------------
-    // Show mini map.
+    // Show mini map and weapon.
     // ---------------------------------------------------------------------------
     // Show mini map.
     this.mini_map.SetActive(true);
+    // Enable player weapon.
+    this.player.WeaponEnable();
+    // Enable player weapon aim.
+    this.weapon_aim.SetActive(true);
   } // End of StartGame
 
   // Fade out.

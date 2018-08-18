@@ -4,9 +4,9 @@ using System.Collections;
 // Class that handle background music in the game.
 public class MusicManager : MonoBehaviour
 {
-  // *****************************************  
-  //             Public fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------
+  // Public fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Single static instance of MusicManager (Singelton pattern).
@@ -21,9 +21,9 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private fields                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private fields                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Single static instance of MusicManager (Singelton pattern).
@@ -34,9 +34,9 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Public methods                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Public methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Play clip.
@@ -54,9 +54,9 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+  // ---------------------------------------------------------------------------  
+  // Private methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Awake (used to initialize any variables or game state before the game starts).

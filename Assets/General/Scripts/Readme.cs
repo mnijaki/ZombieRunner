@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // Only for purpose of README
 public class Readme : MonoBehaviour
 {
   // Only for purpose of README
+  // • clamp map
   // add camera shake after fire and after player being hit
-	// • przemyslec czy nie przerobic playerprefs na Instance
+  // • przemyslec czy nie przerobic playerprefs na Instance
   // • hanging quality settings should change other setting e.g.Anti-Aliasing
   //   • ustawienia z optionsow powinny wplywac na rozgrywke (jakis broadcast?)
   //   • view distance, sfx volume, difficulty,movement speed, mouse speed(fps controller),PermaDeath, level unlocked

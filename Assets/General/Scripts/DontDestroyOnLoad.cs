@@ -3,9 +3,9 @@
 // Don't destroy game object after loading next scene.
 public class DontDestroyOnLoad: MonoBehaviour
 {
-  // *****************************************  
-  //             Private methods                  
-  // *****************************************
+  // ---------------------------------------------------------------------------
+  // Private methods                  
+  // ---------------------------------------------------------------------------
   #region
 
   // Initialization.
