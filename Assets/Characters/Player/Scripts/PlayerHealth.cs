@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
   private int health;
   // Armor.
   private int armor = 0;
+  // 
+  public BloodStart bs;
 
   #endregion
 
@@ -48,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
     {
       return;
     }
+    this.bs.Blood();
     // If player have armor.
     if(this.armor>0)
     {

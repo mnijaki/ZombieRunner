@@ -93,8 +93,9 @@ public class StaticRainBehaviour : RainBehaviourBase {
 	{
 		if (rainController != null)
 		{
-			DestroyImmediate (rainController.gameObject);
-			rainController = null;
+      //DestroyImmediate (rainController.gameObject);
+      Destroy(rainController.gameObject);
+      rainController = null;
 		}
 		rainController = CreateController ();
 		rainController.Refresh ();
@@ -130,8 +131,9 @@ public class StaticRainBehaviour : RainBehaviourBase {
 		{
 			return;
 		}
-		DestroyImmediate (rainController.gameObject);
-		rainController = null;
+    //DestroyImmediate (rainController.gameObject);
+    Destroy(rainController.gameObject);
+    rainController = null;
         Refresh(); // Work around TODO: fix initialize bug
     }
 

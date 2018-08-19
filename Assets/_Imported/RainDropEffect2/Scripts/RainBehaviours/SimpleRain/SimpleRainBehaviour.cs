@@ -137,8 +137,9 @@ public class SimpleRainBehaviour : RainBehaviourBase {
 		{
 			return;
 		}
-		DestroyImmediate (rainController.gameObject);
-		rainController = null;
+    //DestroyImmediate (rainController.gameObject);
+    Destroy(rainController.gameObject);
+    rainController = null;
 	}
 
 
