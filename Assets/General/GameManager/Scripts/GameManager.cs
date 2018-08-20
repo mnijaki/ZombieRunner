@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
+  // Player voice.
+  private PlayerVoice player_voice;
   // Single static instance of GameManager (Singelton pattern).
   private static GameManager _instance;  
   // Array of enemies spawn points.
@@ -186,6 +188,8 @@ public class GameManager : MonoBehaviour
   // Initialize.
   private void Start()
   {
+    // Get player voice.
+    Instance.player_voice=GameObject.FindObjectOfType<PlayerVoice>();
     // Start game.
     StartCoroutine(StartGame(10.0F));    
   } // End of Start
@@ -256,28 +260,30 @@ public class GameManager : MonoBehaviour
   // Start game.
   private IEnumerator StartGame(float duration)
   {
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Level info.
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Yield to show level info.
     yield return new WaitForSeconds(4);
     // Hide level info text.
     Instance.lvl_info_txt.SetActive(false);
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Instantiate game objects.
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Initialization of landing area.
     LandingAreaInit();
     // Initialization of enemies.
     EnemiesInit();
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Respawn player.
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Respawn player at random spawn point.
     Instance.player.Respawn();
-    // ---------------------------------------------------------------------------
+    // Play what happened clip.
+    Instance.player_voice.VoicePlay(Instance.player_voice.what_happened_clip,0);
+    // ---------------------------------------------------------------------------------------------------------------------
     // Fade in.
-    // ---------------------------------------------------------------------------   
+    // --------------------------------------------------------------------------------------------------------------------- 
     // Time left.
     float time_left =0.0F;
     // Create black color with alpha=1;
@@ -296,9 +302,9 @@ public class GameManager : MonoBehaviour
     }
     // Disable fade panel.
     Instance.fade_panel.SetActive(false);
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Show mini map and weapon.
-    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------------------------------
     // Show mini map.
     this.mini_map.SetActive(true);
     // Enable player weapon.

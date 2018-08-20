@@ -8,11 +8,11 @@ public class WeaponRaycastDebug : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Distance in Unity units over which the Debug.DrawRay will be drawn.
+  // Distance in Unity units over which the 'Debug.DrawRay()' will be drawn.
   [SerializeField]
   [Range(10.0F,500.0F)]
-  [Tooltip("Distance in Unity units over which the Debug.DrawRay will be drawn")]
-  public float weaponRange = 50.0F;
+  [Tooltip("Distance in Unity units over which the 'Debug.DrawRay()' will be drawn")]
+  public float wepaon_range = 50.0F;
 
   #endregion
 
@@ -36,18 +36,18 @@ public class WeaponRaycastDebug : MonoBehaviour
   // Initialization
   private void Start()
   {
-    // Get and store a reference to our Camera by searching this GameObject and its parents.
-    this.fpc_camera = GetComponentInParent<Camera>();
+    // Get first person controller camera.
+    this.fpc_camera = this.gameObject.GetComponentInParent<Camera>();
   } // End of Start
 
   // Update (called once per frame).
   private void Update()
   {
     // Create a vector at the center of our camera's viewport
-    Vector3 lineOrigin = this.fpc_camera.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
-    // Draw a line in the Scene View  from the point lineOrigin in the direction of fpsCam.transform.forward * weaponRange, using the color green
+    Vector3 line_origin = this.fpc_camera.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0.0f));
+    // Draw a green line in the from the point 'line_origin in the direction of 'fpc_camera.transform.forward * weaponRange'.
     // Only visable in scene view (to see it in game view enable necessery gizmos).
-    Debug.DrawRay(lineOrigin,this.fpc_camera.transform.forward * this.weaponRange,Color.green);
+    Debug.DrawRay(line_origin,this.fpc_camera.transform.forward * this.wepaon_range,Color.green);
   } // End of Update
 
   #endregion

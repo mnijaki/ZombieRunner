@@ -3,12 +3,12 @@
 // Manage player preferences.
 public class PlayerPrefsManager:MonoBehaviour
 {
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  //------------------------------------------------------------
+  // .....................................................................................................................
   // Master volume.
   private const string MASTER_VOLUME_KEY = "master_volume";
   private const float MASTER_VOLUME_MIN = 0.0F;
@@ -27,8 +27,8 @@ public class PlayerPrefsManager:MonoBehaviour
   private const float SFX_VOLUME_MAX = 1.0F;
   private const float SFX_VOLUME_DEF = 0.5F;
   private const bool SFX_VOLUME_WHOLE_NUMBERS = false;
-  //------------------------------------------------------------
-  // Quality (doesen have 'max' and 'def' becouse it cannot be const).
+  // .....................................................................................................................
+  // Quality (doesn't have 'max' and 'def' because it cannot be const).
   private const string QUALITY_KEY = "quality";
   private const int QUALITY_MIN = 0;
   private const bool QUALITY_WHOLE_NUMBERS = true;
@@ -38,7 +38,7 @@ public class PlayerPrefsManager:MonoBehaviour
   private const float VIEW_DISTANCE_MAX = 3000.0F;
   private const float VIEW_DISTANCE_DEF = 1000.0F;
   private const bool VIEW_DISTANCE_WHOLE_NUMBERS = false;
-  //------------------------------------------------------------
+  // .....................................................................................................................
   // Post processing enabled/disabled.
   private const string POST_PROCESSING_KEY = "post_processing";
   private const int POST_PROCESSING_MIN = 0;
@@ -50,7 +50,8 @@ public class PlayerPrefsManager:MonoBehaviour
   private const int ANTI_ALIASING_MAX = 8;
   private const int ANTI_ALIASING_DEF = 2;
   private const bool ANTI_ALIASING_WHOLE_NUMBERS = true;
-  // Ambient occlusion(dynamiczne wyznaczanie oświetlenia - takie coś jak w blenderze, mega muli, używane w post processingu).
+  // Ambient occlusion(dynamiczne wyznaczanie oświetlenia - takie coś jak w blenderze, mega muli, 
+  // używane w post processingu).
   private const string AO_KEY = "ao";
   private const int AO_MIN = 0;
   private const int AO_MAX = 1;
@@ -85,7 +86,7 @@ public class PlayerPrefsManager:MonoBehaviour
   private const int VIGNETTE_MIN = 0;
   private const int VIGNETTE_MAX = 1;
   private const int VIGNETTE_DEF = 1;
-  // -----------------------------------------------------------
+  // .....................................................................................................................
   // Difficulty.
   private const string DIFFICULTY_KEY = "difficulty";
   private const int DIFFICULTY_MIN = 1;
@@ -115,14 +116,14 @@ public class PlayerPrefsManager:MonoBehaviour
   private const int PERMA_DEATH_MIN = 0;
   private const int PERMA_DEATH_MAX = 1;
   private const int PERMA_DEATH_DEF = 0;
-  // -----------------------------------------------------------
+  // .....................................................................................................................
 
   #endregion
 
 
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public methods associated with audio                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Set master volume.
@@ -278,9 +279,9 @@ public class PlayerPrefsManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   //  Public methods associated with video                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Set quality.
@@ -387,9 +388,9 @@ public class PlayerPrefsManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public methods associated with post-processing                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Set post processing.
@@ -797,9 +798,9 @@ public class PlayerPrefsManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public methods associated with gameplay                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Set difficulty.

@@ -4,12 +4,12 @@ using System.Collections;
 // Class that handle background music in the game.
 public class MusicManager : MonoBehaviour
 {
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Single static instance of MusicManager (Singelton pattern).
+  // Single static instance of 'MusicManager' (Singelton pattern).
   public static MusicManager Instance
   {
     get
@@ -21,12 +21,12 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Single static instance of MusicManager (Singelton pattern).
+  // Single static instance of 'MusicManager' (Singelton pattern).
   private static MusicManager _instance;
   // Audio source.
   private AudioSource audio_source;
@@ -34,13 +34,13 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   // Public methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Play clip.
-  public void ClipPlay(AudioClip clip,float delay,bool is_looped)
+  public void ClipPlay(AudioClip clip, float delay, bool is_looped)
   {
     StartCoroutine(ClipPlayWithDelay(clip,delay,is_looped));
   } // End of ClipPlay
@@ -54,9 +54,9 @@ public class MusicManager : MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   // Private methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Awake (used to initialize any variables or game state before the game starts).
@@ -78,7 +78,7 @@ public class MusicManager : MonoBehaviour
     // Make sure that game object will not be destroyed after loading next scene.
     GameObject.DontDestroyOnLoad(Instance.gameObject);
     // Get audio source.
-    Instance.audio_source=this.GetComponent<AudioSource>();
+    Instance.audio_source=Instance.GetComponent<AudioSource>();
     // Set volume from player preferences.
     Instance.audio_source.volume=PlayerPrefsManager.MasterVolumeGet();
   } // End of Start

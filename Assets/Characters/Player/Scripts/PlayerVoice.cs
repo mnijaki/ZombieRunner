@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Player voice manager.
+// Player voice.
 public class PlayerVoice : MonoBehaviour
 {
   // ---------------------------------------------------------------------------------------------------------------------
@@ -9,6 +9,10 @@ public class PlayerVoice : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
+  // What happened clip.
+  [SerializeField]
+  [Tooltip("What happened clip")]
+  public AudioClip what_happened_clip;
   // Suitable landing area for helicopter found clip.
   [Tooltip("Suitable landing area for helicopter found clip")]
   public AudioClip landing_area_found_clip;
@@ -24,18 +28,6 @@ public class PlayerVoice : MonoBehaviour
   // Player death clip.
   [Tooltip("Player death clip")]
   public AudioClip death_clip;
-
-  #endregion
-
-  // ---------------------------------------------------------------------------------------------------------------------
-  // Serialized fields                  
-  // ---------------------------------------------------------------------------------------------------------------------
-  #region
-
-  // What happened clip.
-  [SerializeField]
-  [Tooltip("What happened clip")]
-  private AudioClip what_happened_clip;
 
   #endregion
 
@@ -74,9 +66,7 @@ public class PlayerVoice : MonoBehaviour
   private void Start()
   {
     // Get voice audio source.
-    this.voice=this.GetComponent<AudioSource>();
-    // Play what happened clip.
-    VoicePlay(this.what_happened_clip,6);
+    this.voice=this.GetComponent<AudioSource>();    
   } // End of Start
 
   // Play audio clip on 'voice' audio source with delay.

@@ -5,9 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 // Helicopter manager.
 public class Heli:MonoBehaviour
 {
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Serialized fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Helicopter radio audio source.
@@ -31,26 +31,26 @@ public class Heli:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Helicopter starting point.
   private Vector3 start_point_pos;
   // Landing area position.
   private Vector3 landing_area_pos;
-  // Horizontal movement time of helicopter (to put helicopte up or down).
+  // Horizontal movement time of helicopter (to put helicopter up or down).
   private float hor_movement_time = 7.0F;
   // Flag if helicopter is flaying to rescue point.
   private bool is_flaying = true;
 
   #endregion
-  
 
-  // ---------------------------------------------------------------------------  
+
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Start.
@@ -72,7 +72,7 @@ public class Heli:MonoBehaviour
   } // End of Start
 
   // Put helicopter down.
-  private IEnumerator PutDown(Transform trans,Vector3 end_pos)
+  private IEnumerator PutDown(Transform trans, Vector3 end_pos)
   {
     // Start position.
     Vector3 start_pos=trans.position;
@@ -149,18 +149,18 @@ public class Heli:MonoBehaviour
   } // OnTriggerEnter 
 
   // Put helicopter up.
-  private IEnumerator PutUp(Transform trans,Vector3 end_pos)
+  private IEnumerator PutUp(Transform trans, Vector3 end_pos)
   {
-    // Send message that player boarde helicopter.
-    GameManager.Instance.OnPlayerBoardedHeli(this.hor_movement_time);
     // Change flag.
     this.is_flaying=true;
+    // Send message that player boarded helicopter.
+    GameManager.Instance.OnPlayerBoardedHeli(this.hor_movement_time);
     // Start position.
     Vector3 start_pos = trans.position;
     // Start rotation.
     Quaternion start_rot = trans.rotation;
     // End rotation.
-    Quaternion end_rot = trans.rotation;
+    Quaternion end_rot = new Quaternion();
     end_rot.eulerAngles=new Vector3(0,180,0);
     // Time left.
     float time_left = 0.0F;

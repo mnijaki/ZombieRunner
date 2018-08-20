@@ -31,7 +31,10 @@ public class Readme : MonoBehaviour
   // • probuilder?
   // • add screenshots handling
   //   • screenshots https://docs.unity3d.com/ScriptReference/ScreenCapture.CaptureScreenshotAsTexture.html   
-  // add binoculars on v (change it to b)
+  // add binoculars on b
   // shift hold breaths
-  // right click zoom gun in
+  // • right click zoom gun in (scope mode) 
+  //  • https://www.youtube.com/watch?v=adcKX1c-kag
+  //  • check if weapon is scope able
+  // • Add enemy death animation
 }

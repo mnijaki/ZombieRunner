@@ -22,6 +22,7 @@ public class PlayerCameraShake:MonoBehaviour
 
   #endregion
 
+
   // ---------------------------------------------------------------------------------------------------------------------
   // Private fields                  
   // ---------------------------------------------------------------------------------------------------------------------
@@ -38,7 +39,7 @@ public class PlayerCameraShake:MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Public start own shake of player camera.
+  // Start own shake of player camera.
   public void ShakeOwnStart(float duration, float magnitude)
   {
     // If shaking is happening.
@@ -51,7 +52,7 @@ public class PlayerCameraShake:MonoBehaviour
     StartCoroutine(Shake(duration,magnitude));
   } // End of ShakeOwnStart
 
-  // Public start default shake of player camera.
+  // Start default shake of player camera.
   public void ShakeDefStart()
   {
     // If shaking is happening.

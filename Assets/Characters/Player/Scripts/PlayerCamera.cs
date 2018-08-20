@@ -3,9 +3,9 @@
 // Player camera manager
 public class PlayerCamera : MonoBehaviour
 {
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Camera.
@@ -16,32 +16,25 @@ public class PlayerCamera : MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Initialization.
   private void Start()
   {
-    // Initialization.
-    Init();
-  } // End of Start
-
-  // Initialization.
-  private void Init()
-  {
     // Get player camera.
     this.player_camera=this.GetComponent<Camera>();
     // Get default field of view.
     this.def_fov=this.player_camera.fieldOfView;
-  } // End of Init
+  } // End of Start
 
   // Update (called once per frame).
   private void Update()
   {
-    // If user pressed zoom button
-    if(Input.GetButton("Zoom"))
+    // If user pressed zoom button.
+    if(Input.GetButton("player_camera_zoom"))
     {
       // Set camera field of view.
       this.player_camera.fieldOfView=this.def_fov/1.8F;

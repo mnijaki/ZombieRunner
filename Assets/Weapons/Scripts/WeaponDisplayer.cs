@@ -8,7 +8,7 @@ public class WeaponDisplayer:MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Weapon type.
+  // Weapon type (scriptable object).
   private WeaponType weapon_type;
 
   #endregion
@@ -26,15 +26,18 @@ public class WeaponDisplayer:MonoBehaviour
     this.weapon_type=this.GetComponent<Weapon>().weapon_type;
 
     // MN:2018/08/18: Use this constructuion if you don't want to change default position of weapon in prefab...
-    //Instantiate(this.weapon_type.model,this.weapon_type.trans.position,this.weapon_type.trans.rotation,this.transform);
+    // Instantiate(this.weapon_type.model,this.weapon_type.trans.position,this.weapon_type.trans.rotation,this.transform);
 
     // Display weapon.
     Instantiate(this.weapon_type.model,this.transform);
   } // End of Start
 
-  #endregion
+  // Event - on weapon type changed.
+  private void OnWeaponTypeChanged()
+  {
+    // TO_DO:MN:2018/08/20: Need to be implemented.
+  } // End of OnWeaponTypeChanged
 
-  // TO_DO: show weapon info in hud
-  //        make function that display info if weapon was changed
+  #endregion
 
 } // End of WeaponDisplayer

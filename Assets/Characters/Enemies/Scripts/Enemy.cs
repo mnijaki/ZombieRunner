@@ -85,12 +85,12 @@ public class Enemy : MonoBehaviour
   {
     // Get Nav Mesh Agent.
     this.agent=this.GetComponent<NavMeshAgent>();
-    // Actualize speed.
-    SpeedAct();
+    // Randomize speed.
+    SpeedRandomize();
   } // End of Start
 
-  // Actualize speed.
-  private void SpeedAct()
+  // Randomize speed.
+  private void SpeedRandomize()
   {
     // Actualize speed.
     this.agent.speed=Random.Range(this.min_speed,this.max_speed);
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
     this.agent.angularSpeed=Random.Range(this.min_angular_speed,this.max_angular_speed);
     // Actualize acceleration.
     this.agent.acceleration=Random.Range(this.min_acceleration,this.max_acceleration);
-  } // End of SpeedAct
+  } // End of SpeedRandomize
 
   #endregion
 

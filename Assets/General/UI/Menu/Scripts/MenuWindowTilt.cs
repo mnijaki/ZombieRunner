@@ -1,33 +1,68 @@
 using UnityEngine;
 
 // Tilt window (change it angle depending of mause position).
-public class MenuWindowTilt: MonoBehaviour
+public class MenuWindowTilt : MonoBehaviour
 {
-	public Vector2 range = new Vector2(5f, 3f);
+  // ---------------------------------------------------------------------------------------------------------------------
+  // Public fields                  
+  // ---------------------------------------------------------------------------------------------------------------------
+  #region
 
-	Transform mTrans;
-	Quaternion mStart;
-	Vector2 mRot = Vector2.zero;
+  // Range of window tilt.
+  [Range(0.0F,30.0F)]
+  [Tooltip("Range of window tilt.")]
+  public Vector2 range = new Vector2(5.0F,3.0F);
 
-	void Start ()
+  #endregion
+
+
+  // ---------------------------------------------------------------------------------------------------------------------
+  // Private fields                  
+  // ---------------------------------------------------------------------------------------------------------------------
+  #region
+
+  // Transfor.
+  private Transform trans;
+  // Locla rotation.
+  private Quaternion rot_local;
+  // Temporary rotation.
+  private Vector2 rot_tmp = Vector2.zero;
+
+  #endregion
+
+
+  // ---------------------------------------------------------------------------------------------------------------------
+  // Private methods                  
+  // ---------------------------------------------------------------------------------------------------------------------
+  #region
+
+  // Initialization.
+  private void Start()
 	{
-		mTrans = transform;
-		mStart = mTrans.localRotation;
-	}
+    // Get transform.
+    this.trans = this.transform;
+    // Get local rotation.
+    this.rot_local = this.trans.localRotation;
+  } // End of Start
 
-	void Update ()
+  // Update (called once per frame).
+  private void Update ()
 	{
-    
+    // Get mouse position.
 		Vector3 pos = Input.mousePosition;   
-
-    float halfWidth = Screen.width * 0.5f;
-		float halfHeight = Screen.height * 0.5f;
-		float x = Mathf.Clamp((pos.x - halfWidth) / halfWidth, -1f, 1f);
-		float y = Mathf.Clamp((pos.y - halfHeight) / halfHeight, -1f, 1f);
-    // Usunig 'Time.unscaledDeltaTime' becouse in pause menu 'Time.scale=0'.
-    mRot = Vector2.Lerp(mRot,new Vector2(x,y),Time.unscaledDeltaTime * 5f);
+    // Compute half width and height of screen.
+    float half_width = Screen.width * 0.5f;
+		float half_height = Screen.height * 0.5f;
+    // Compute 'x' and 'y'.
+		float x = Mathf.Clamp((pos.x-half_width)/half_width, -1f, 1f);
+		float y = Mathf.Clamp((pos.y-half_height)/half_height, -1f, 1f);
+    // Usunig 'Time.unscaledDeltaTime' because in pause menu time is paused ('Time.scale=0'), but tilting of window
+    // should still work.
+    this.rot_tmp = Vector2.Lerp(this.rot_tmp,new Vector2(x,y), Time.unscaledDeltaTime*5f);
     // Actualize angle of window.
-    mTrans.localRotation = mStart * Quaternion.Euler(-mRot.y * range.y, mRot.x * range.x, 0f);
-	}
+    this.trans.localRotation = this.rot_local * Quaternion.Euler(-this.rot_tmp.y * this.range.y,this.rot_tmp.x * this.range.x, 0f);
+	} // End of Update
 
-} // ENd of MenuWindowTilt
+  #endregion
+
+} // End of MenuWindowTilt

@@ -362,6 +362,12 @@
     <None Include="Assets\Environment\Rocks\Shaders\Blend SM2.shader" />
     <None Include="Assets\Environment\Rocks\Shaders\Blend SM3.shader" />
     <None Include="Assets\Environment\Rocks\Shaders\shader info.txt" />
+    <None Include="Assets\General\BloodManager\ReadMe.txt" />
+    <None Include="Assets\General\BloodManager\Shaders\Resources\RainDistortion (Deffered).shader" />
+    <None Include="Assets\General\BloodManager\Shaders\Resources\RainDistortion (Forward).shader" />
+    <None Include="Assets\General\BloodManager\Shaders\Resources\RainDistortion (Mobile).shader" />
+    <None Include="Assets\General\BloodManager\Shaders\Resources\RainDropGlobal.cginc" />
+    <None Include="Assets\General\BloodManager\Shaders\Resources\RainNoDistortion.shader" />
     <None Include="Assets\General\UI\Menu\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Weapons\Models\MachineGuns\Shader\BDCS.shader" />
     <None Include="Assets\Weapons\Models\MachineGuns\documentation.txt" />
@@ -410,12 +416,6 @@
     <None Include="Assets\_Imported\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\_Imported\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\_Imported\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
-    <None Include="Assets\_Imported\RainDropEffect2\ReadMe.txt" />
-    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Deffered).shader" />
-    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Forward).shader" />
-    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDistortion (Mobile).shader" />
-    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainDropGlobal.cginc" />
-    <None Include="Assets\_Imported\RainDropEffect2\Shaders\Resources\RainNoDistortion.shader" />
     <None Include="Assets\_Imported\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\_Imported\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\_Imported\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

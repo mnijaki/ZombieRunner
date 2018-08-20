@@ -6,9 +6,9 @@ using System.Collections;
 // Menu windows manager.
 public class MenuWindowsManager:MonoBehaviour
 {
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Animator of initially open window.
@@ -17,9 +17,9 @@ public class MenuWindowsManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Id of animation trigger responsible for opening of panel.
@@ -35,9 +35,10 @@ public class MenuWindowsManager:MonoBehaviour
 
   #endregion
 
-  // ---------------------------------------------------------------------------  
+
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // On enabling panel.
@@ -79,7 +80,8 @@ public class MenuWindowsManager:MonoBehaviour
     GameObject go = FindFirstEnabledSelectable(anim.gameObject);
     // Set given game object as selected.
     EventSystem.current.SetSelectedGameObject(go);
-  }
+  } // End of OpenPanel
+
   // Reset menu to starting settings.
   public void Reset()
   {
@@ -105,6 +107,7 @@ public class MenuWindowsManager:MonoBehaviour
     this.opened_window_anim = null;
   } // End of CurrOpenedWindowClose
 
+  // Find first element that can be selected (eg. button). 
   static GameObject FindFirstEnabledSelectable(GameObject gameObject)
   {
     GameObject go = null;
@@ -120,16 +123,16 @@ public class MenuWindowsManager:MonoBehaviour
     }
     //
     return go;
-  }
+  } // End of FindFirstEnabledSelectable
 
   #endregion
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------
   // Private methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // 
+  // ???
   IEnumerator DisablePanelDeleyed(Animator anim)
   {
     // Flag if closed state is reached.
@@ -156,7 +159,7 @@ public class MenuWindowsManager:MonoBehaviour
     {
       anim.gameObject.SetActive(false);
     }
-  }
+  } // End of DisablePanelDeleyed
 
   #endregion
 

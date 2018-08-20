@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-// Enemy health characteristic.
+// Enemy health.
 public class EnemyHealth : MonoBehaviour
 {
   // ---------------------------------------------------------------------------------------------------------------------
@@ -82,6 +82,7 @@ public class EnemyHealth : MonoBehaviour
       // TO_DO:  
       //         corutine should have duration of death animation (voice is not necessery because is set as clip at point).
       //         this.GetComponent<Animator>().SetTrigger("Death");
+      
       // Send message about enemy death.
       StartCoroutine(GameManager.Instance.OnEnemyDeath(time_of_death_anim,this.gameObject));
     }

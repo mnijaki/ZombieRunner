@@ -5,9 +5,9 @@ using System.Collections;
 // Class that manage levels.
 public class LevelManager:MonoBehaviour
 {
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   // Public fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Single static instance of 'LevelManager' (Singelton pattern).
@@ -26,9 +26,9 @@ public class LevelManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   // Private fields                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Single static instance of 'LevelManager' (Singelton pattern).
@@ -39,9 +39,9 @@ public class LevelManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   //  Public methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Quit.
@@ -97,7 +97,7 @@ public class LevelManager:MonoBehaviour
   } // End of HelpLoad
 
   // Load scene.
-  public void SceneLoad(Scenes scene,float delay)
+  public void SceneLoad(Scenes scene, float delay)
   {
     // Load scene with delay.
     StartCoroutine(SceneLoadWithDelay(scene,delay));
@@ -113,9 +113,9 @@ public class LevelManager:MonoBehaviour
   #endregion
 
 
-  // ---------------------------------------------------------------------------  
+  // ---------------------------------------------------------------------------------------------------------------------  
   // Private methods                  
-  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------------------------------
   #region
 
   // Awake (used to initialize any variables or game state before the game starts).
@@ -139,7 +139,7 @@ public class LevelManager:MonoBehaviour
   } // End of Start
 
   // Load scene with delay.
-  private IEnumerator SceneLoadWithDelay(Scenes scene,float delay)
+  private IEnumerator SceneLoadWithDelay(Scenes scene, float delay)
   {
     // If no scene then exit from function.
     if(scene==Scenes.NONE)
@@ -148,7 +148,7 @@ public class LevelManager:MonoBehaviour
     }
     // Wait for 'time' seconds.
     yield return new WaitForSeconds(delay);
-    // Actualize counter.
+    // Actualize current level.
     Instance.cur_lvl=Lvls.NONE;
     // Load scene.
     SceneManager.LoadScene(SceneNameDecode(scene));

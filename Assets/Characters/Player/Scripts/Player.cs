@@ -43,9 +43,6 @@ public class Player : MonoBehaviour
   [SerializeField]
   [Tooltip("Weapon aim")]
   private GameObject weapon_aim;
-  // TO_DO:do usunieca
-  [SerializeField]
-  private bool reset_speed = false;
 
   #endregion
 
@@ -147,12 +144,6 @@ public class Player : MonoBehaviour
       this.player_voice.VoicePlay(this.player_voice.heli_radio_call_clip,0.0F);
       // Call helicopter with delay.
       StartCoroutine(HeliCallWithDelay(this.player_voice.heli_radio_call_clip.length+2.0F));
-    }
-    // TO_DO: do usuniecia
-    if(this.reset_speed)
-    {
-      this.reset_speed=false;
-      SpeedAct();
     }
   } // End of Update
 

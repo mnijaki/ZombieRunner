@@ -37,7 +37,6 @@ public class Weapon:MonoBehaviour
   // Animator.
   private Animator anim;
 
-
   #endregion
 
 
@@ -49,8 +48,7 @@ public class Weapon:MonoBehaviour
   // Get weapon weight.
   public int WeightGet()
   {
-    // TO_DO:implement
-    return 1;
+    return this.weapon_type.weight;
   } // End of WeightGet
 
   #endregion
@@ -67,7 +65,7 @@ public class Weapon:MonoBehaviour
     // Get laser line.
     this.laser_line = GetComponent<LineRenderer>();
     // Get laser draw duration.
-    this.laser_draw_duration = new WaitForSeconds(this.weapon_type.laser_draw_duration);
+    this.laser_draw_duration = new WaitForSeconds(this.weapon_type.beam_draw_duration);
     // Get audio source.
     this.audio_source = GetComponent<AudioSource>();
     // Get first person camera.

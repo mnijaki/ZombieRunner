@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 124383269571706404}
   - component: {fileID: 114298833614270888}
   - component: {fileID: 114511122800026792}
+  - component: {fileID: 114107783443337772}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -599,6 +600,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114107783443337772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360239948900626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e5625076a635447ac966905b47c792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  def_duration: 1
+  def_magnitude: 0.3
 --- !u!114 &114142182949720284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -629,7 +643,7 @@ MonoBehaviour:
     type: 2}
   heli_starting_point: {fileID: 0}
   weapon_go: {fileID: 1262306374060710}
-  reset_speed: 0
+  weapon_aim: {fileID: 0}
 --- !u!114 &114298833614270888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,10 +921,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Center: {x: 0, y: -0.75, z: 0}
 --- !u!143 &143527152872433742
 CharacterController:
   m_ObjectHideFlags: 1
@@ -922,7 +936,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 4.4
-  m_Radius: 0.5
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.15
