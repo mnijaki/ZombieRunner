@@ -296,7 +296,7 @@
     <Compile Include="Assets\_Imported\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\_Imported\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\AxisRotator.cs" />
-    <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\BloodStart.cs" />
+    <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\BloodManager.cs" />
     <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\DemoScene1.cs" />
     <Compile Include="Assets\_Imported\RainDropEffect2\Demo\Scripts\DemoScene2.cs" />
     <Compile Include="Assets\_Imported\RainDropEffect2\Scripts\Camera\RainCameraController.cs" />
@@ -424,6 +424,7 @@
     <Compile Include="Assets\Characters\Heli\Scripts\Heli.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Player.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\PlayerCameraShake.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerVoice.cs" />
     <Compile Include="Assets\General\GameManager\Scripts\GameManager.cs" />

@@ -599,8 +599,8 @@ GameObject:
   - component: {fileID: 54481199129523606}
   - component: {fileID: 136938753362565790}
   - component: {fileID: 136088395804718216}
-  - component: {fileID: 195623765451528016}
   - component: {fileID: 82699571742743444}
+  - component: {fileID: 195623765451528016}
   - component: {fileID: 114643299632280036}
   - component: {fileID: 114601928458589154}
   - component: {fileID: 114491909023006442}
@@ -2808,8 +2808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  min_speed: 0.6
-  max_speed: 2
+  min_speed: 0.8
+  max_speed: 3.5
   min_angular_speed: 80
   max_angular_speed: 120
   min_acceleration: 5

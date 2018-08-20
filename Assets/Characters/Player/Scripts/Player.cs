@@ -37,8 +37,12 @@ public class Player : MonoBehaviour
   private Transform heli_starting_point;
   // Player weapon game object.
   [SerializeField]
-  [Tooltip("layer weapon game object")]
+  [Tooltip("Player weapon game object")]
   private GameObject weapon_go;
+  // Weapon aim.
+  [SerializeField]
+  [Tooltip("Weapon aim")]
+  private GameObject weapon_aim;
   // TO_DO:do usunieca
   [SerializeField]
   private bool reset_speed = false;
@@ -77,8 +81,20 @@ public class Player : MonoBehaviour
   // Enable weapon.
   public void WeaponEnable()
   {
+    // Enable player weapon.
     this.weapon_go.SetActive(true);
+    // Enable player weapon aim.
+    this.weapon_aim.SetActive(true);
   } // End of WeaponEnable
+
+  // Disable weapon.
+  public void WeaponDisable()
+  {
+    // Disable player weapon.
+    this.weapon_go.SetActive(false);
+    // Disable player weapon aim.
+    this.weapon_aim.SetActive(false);
+  } // End of WeaponDisable
 
   // Respawn player at random spawn point.
   public void Respawn()

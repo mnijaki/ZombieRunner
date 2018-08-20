@@ -64,10 +64,6 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   [Tooltip("Mini map")]
   private GameObject mini_map;
-  // Weapon aim.
-  [SerializeField]
-  [Tooltip("Weapon aim")]
-  private GameObject weapon_aim;
   // Enemy body dissapear time.
   [SerializeField]
   [Range(0.0F,30.0F)]
@@ -123,7 +119,7 @@ public class GameManager : MonoBehaviour
   public IEnumerator OnPlayerDeath(float duration)
   {
     // Change flag.
-    Instance.is_lvl_changing=true;    
+    Instance.is_lvl_changing=true;
     // Yield (this yield exist to give necessery time to the calling script to perform it duties).
     yield return new WaitForSeconds(duration);
     // ------------------------------------------------------------------
@@ -307,8 +303,6 @@ public class GameManager : MonoBehaviour
     this.mini_map.SetActive(true);
     // Enable player weapon.
     this.player.WeaponEnable();
-    // Enable player weapon aim.
-    this.weapon_aim.SetActive(true);
   } // End of StartGame
 
   // Fade out.

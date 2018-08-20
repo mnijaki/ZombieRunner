@@ -18,14 +18,14 @@ public class Enemy : MonoBehaviour
   private int damage = 10;
   // Minimum speed.
   [SerializeField]
-  [Range(0.1F,1.0F)]
+  [Range(0.1F,5.0F)]
   [Tooltip("Minimum speed")]
   private float min_speed = 0.5F;
   // Maximum speed.
   [SerializeField]
-  [Range(1.0F,3.0F)]
+  [Range(0.1F,5.0F)]
   [Tooltip("Maximum speed")]
-  private float max_speed = 1.5F;
+  private float max_speed = 2.0F;
   // Minimum angular speed.
   [SerializeField]
   [Range(10.0F,100.0F)]

@@ -93,6 +93,7 @@ public class StaticRainBehaviour : RainBehaviourBase {
 	{
 		if (rainController != null)
 		{
+      // MN:2018/08/19: Commented due to errors and changed to normal destroy.
       //DestroyImmediate (rainController.gameObject);
       Destroy(rainController.gameObject);
       rainController = null;

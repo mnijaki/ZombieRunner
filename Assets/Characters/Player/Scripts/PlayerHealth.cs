@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
   [SerializeField]
   [Range(100,500)]
   [Tooltip("Starting health of player")]
-  private int starting_health = 100;  
+  private int starting_health = 100;
 
   #endregion
 
@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region  
 
+  // Player.
+  private Player player;
   // Player voice.
   private PlayerVoice player_voice;
   // Info if player is dead.
@@ -31,8 +33,8 @@ public class PlayerHealth : MonoBehaviour
   private int health;
   // Armor.
   private int armor = 0;
-  // 
-  public BloodStart bs;
+  // Blood manager.
+  private BloodManager blood_manager;
 
   #endregion
 
@@ -50,7 +52,10 @@ public class PlayerHealth : MonoBehaviour
     {
       return;
     }
-    this.bs.Blood();
+    // Show blood effect.
+    this.blood_manager.BloodStart(damage);
+    // Start default shake of player camera.
+    GameObject.FindObjectOfType<PlayerCameraShake>().ShakeDefStart();
     // If player have armor.
     if(this.armor>0)
     {
@@ -79,8 +84,6 @@ public class PlayerHealth : MonoBehaviour
       // Decrease health.
       this.health-=damage;
     }
-    // TO_DO: add blood effect on screen.
-    //
     // If health < 1.
     if(this.health<1)
     {
@@ -90,20 +93,17 @@ public class PlayerHealth : MonoBehaviour
       this.player_voice.VoicePlay(this.player_voice.death_clip,0.0F);
       // Disable player controller (so player cannot move after being killed).
       this.GetComponent<FirstPersonController>().enabled=false;
-
-      // Disable 
-      // TO_DO: shake camera
-      //        show more blood
-      //        fade in
-
+      // Disable player weapon.
+      this.player.WeaponDisable();
       // Send message about player death.
       StartCoroutine(GameManager.Instance.OnPlayerDeath(this.player_voice.death_clip.length));
     }
     // If health >= 1.
     else
     {
+      // MN:2018/08/19: Commented because blood system plays own sound.
       // Play hit clip.
-      this.player_voice.VoicePlay(this.player_voice.hit_clip,0.0F);
+      //this.player_voice.VoicePlay(this.player_voice.hit_clip,0.0F);
     }
   } // End of HealthDecrease
 
@@ -129,8 +129,12 @@ public class PlayerHealth : MonoBehaviour
   // Initialization.
   private void Start()
   {
+    // Get player.
+    this.player=this.GetComponent<Player>();
     // Get voice.
     this.player_voice=this.transform.Find("PlayerVoice").GetComponent<PlayerVoice>();
+    // Get blood manager.
+    this.blood_manager=GameObject.FindObjectOfType<BloodManager>();
   } // End of Start
 
   #endregion
