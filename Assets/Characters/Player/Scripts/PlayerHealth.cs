@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-// Player health characteristic.
+// Player health.
 public class PlayerHealth : MonoBehaviour
 {
   // ---------------------------------------------------------------------------------------------------------------------
@@ -13,7 +13,12 @@ public class PlayerHealth : MonoBehaviour
   [SerializeField]
   [Range(100,500)]
   [Tooltip("Starting health of player")]
-  private int starting_health = 100;
+  private int initial_health = 100;
+  // Starting armor.
+  [SerializeField]
+  [Range(0,200)]
+  [Tooltip("Starting armor of player")]
+  private int initial_armor = 100;
 
   #endregion
 
@@ -27,14 +32,14 @@ public class PlayerHealth : MonoBehaviour
   private Player player;
   // Player voice.
   private PlayerVoice player_voice;
-  // Info if player is dead.
-  private bool is_dead = false;
+  // Blood manager.
+  private BloodManager blood_manager;
   // Health.
   private int health;
   // Armor.
   private int armor = 0;
-  // Blood manager.
-  private BloodManager blood_manager;
+  // Info if player is dead.
+  private bool is_dead = false;
 
   #endregion
 
@@ -52,38 +57,16 @@ public class PlayerHealth : MonoBehaviour
     {
       return;
     }
+    // Decrease armor.
+    damage=ArmorDecrease(damage);
+    // Decrease health.
+    this.health-=damage;
+    // Actualize HUD health.
+    HudIcons.Instance.HealthSet((float)this.health/this.initial_armor);
     // Show blood effect.
     this.blood_manager.BloodStart(damage);
     // Start default shake of player camera.
     GameObject.FindObjectOfType<PlayerCameraShake>().ShakeDefStart();
-    // If player have armor.
-    if(this.armor>0)
-    {
-      // If armor is greater than 2/3 of damage value.
-      if(this.armor > (damage*2/3))
-      {
-        // Reduce armor.
-        this.armor-=damage*2/3;
-        // Actualize damage.
-        damage=damage/3;
-      }
-      // If armor is not greater than 2/3 of damage value.
-      else
-      {
-        // Actualize damage.
-        damage-=this.armor;
-        // Reduce armor to 0.
-        this.armor=0;
-      }
-      // Decrease health.
-      this.health-=damage;
-    }
-    // If player don't have armor.
-    else
-    {
-      // Decrease health.
-      this.health-=damage;
-    }
     // If health < 1.
     if(this.health<1)
     {
@@ -111,9 +94,9 @@ public class PlayerHealth : MonoBehaviour
   public void HealthReset()
   {
     // Reset health.
-    this.health=this.starting_health;
+    this.health=this.initial_health;
     // Reset armor.
-    this.armor=0;
+    this.armor=this.initial_armor;
     // Reset flag.
     this.is_dead=false;
   } // End of HealthReset
@@ -135,7 +118,41 @@ public class PlayerHealth : MonoBehaviour
     this.player_voice=this.transform.Find("PlayerVoice").GetComponent<PlayerVoice>();
     // Get blood manager.
     this.blood_manager=GameObject.FindObjectOfType<BloodManager>();
+    // Set starting health and armor in HUD.
+    HudIcons.Instance.HealthSet(1);
+    HudIcons.Instance.ArmorSet(1);
   } // End of Start
+
+  // Decrease armor.
+  private int ArmorDecrease(int damage)
+  {
+    // If player have no armor.
+    if(this.armor<=0)
+    {
+      // Return damage.
+      return damage;
+    }
+    // If armor is greater than 2/3 of damage value.
+    if(this.armor > (damage*2/3))
+    {
+      // Reduce armor.
+      this.armor-=damage*2/3;
+      // Actualize damage.
+      damage=damage/3;
+    }
+    // If armor is not greater than 2/3 of damage value.
+    else
+    {
+      // Actualize damage.
+      damage-=this.armor;
+      // Reduce armor to 0.
+      this.armor=0;
+    }
+    // Actualize HUD armor.
+    HudIcons.Instance.ArmorSet((float)this.armor/this.initial_armor);
+    // Return damage.
+    return damage;
+  } // End of ArmorDecrease
 
   #endregion
 

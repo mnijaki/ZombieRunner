@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
   // New game.
   public void NewGame()
   {
-    LevelManager.Instance.LvlLoadNext(0.0F);
+    LevelManager.Instance.LvlLoadNext(0.0F,true);
   } // End of NewGame
 
   // Quit game.

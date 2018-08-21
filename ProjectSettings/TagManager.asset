@@ -13,10 +13,13 @@ TagManager:
   - landing_area
   - Fire
   - pause_menu
-  - mini_map
   - weapon_end
   - weapon
   - weapon_aim
+  - heli_starting_point
+  - fade_panel
+  - loading_screen
+  - hud
   layers:
   - Default
   - TransparentFX

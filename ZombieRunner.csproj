@@ -436,12 +436,13 @@
     <Compile Include="Assets\General\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\General\Scripts\PlayerPrefsManager.cs" />
     <Compile Include="Assets\General\Scripts\Readme.cs" />
+    <Compile Include="Assets\General\UI\HUD\Scripts\HudIcons.cs" />
+    <Compile Include="Assets\General\UI\HUD\Scripts\HudMiniMapCamera.cs" />
     <Compile Include="Assets\General\UI\Menu\Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\General\UI\Menu\Scripts\MenuWindowsManager.cs" />
     <Compile Include="Assets\General\UI\Menu\Scripts\MenuWindowTilt.cs" />
     <Compile Include="Assets\General\UI\Menu\Scripts\PauseMenuManager.cs" />
     <Compile Include="Assets\General\UI\Menu\Scripts\SettingsManager.cs" />
-    <Compile Include="Assets\General\UI\MiniMap\Scripts\MiniMapCamera.cs" />
     <Compile Include="Assets\Weapons\Scripts\Weapon.cs" />
     <Compile Include="Assets\Weapons\Scripts\WeaponDisplayer.cs" />
     <Compile Include="Assets\Weapons\Scripts\WeaponRaycastDebug.cs" />

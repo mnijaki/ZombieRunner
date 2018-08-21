@@ -2808,12 +2808,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  min_speed: 0.8
-  max_speed: 3.5
-  min_angular_speed: 80
-  max_angular_speed: 120
-  min_acceleration: 5
-  max_acceleration: 10
+  min_speed: 1.5
+  max_speed: 4.5
+  min_angular_speed: 100
+  max_angular_speed: 160
+  min_acceleration: 7
+  max_acceleration: 12
 --- !u!114 &114601928458589154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0127946093f45e438359a494d0fb1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 20
   hit_clip: {fileID: 8300000, guid: 2466a32694b72c147b7500e888a0e274, type: 3}
   death_clip: {fileID: 8300000, guid: b63d2ac907218984a9ebe568f1ed4f0c, type: 3}
   blood_effect: {fileID: 198302200393912568}
@@ -3072,7 +3072,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 0.9
   m_Acceleration: 10
-  avoidancePriority: 50
+  avoidancePriority: 99
   m_AngularSpeed: 120
   m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 0
@@ -3081,7 +3081,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 7
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 4
 --- !u!198 &198000079609984418
 ParticleSystem:
   m_ObjectHideFlags: 1

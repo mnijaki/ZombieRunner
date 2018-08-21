@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 // Class that manage levels.
 public class LevelManager:MonoBehaviour
@@ -35,6 +36,10 @@ public class LevelManager:MonoBehaviour
   private static LevelManager _instance;
   // Current level.
   private Lvls cur_lvl=Lvls.NONE;
+  // Loading panel.
+  private GameObject loading_panel;
+  // Progress slider.
+  private Slider progress_slider;
 
   #endregion
 
@@ -104,10 +109,10 @@ public class LevelManager:MonoBehaviour
   } // End of SceneLoad
 
   // Load next level.
-  public void LvlLoadNext(float delay)
+  public void LvlLoadNext(float delay, bool is_async)
   {
     // Load next level with delay.
-    StartCoroutine(LvlLoadNextWithDelay(delay));
+    StartCoroutine(LvlLoadNextWithDelay(delay,is_async));
   } // End of LvlLoadNext
 
   #endregion
@@ -135,7 +140,11 @@ public class LevelManager:MonoBehaviour
   private void Start()
   {
     // Make sure that game object will not be destroyed after loading next scene.
-    GameObject.DontDestroyOnLoad(Instance.gameObject);   
+    GameObject.DontDestroyOnLoad(Instance.gameObject);
+    // Get loading panel.
+    Instance.loading_panel=GameObject.FindGameObjectWithTag("loading_screen").GetComponentsInChildren<Transform>(true)[1].gameObject;
+    // Get progress slider.
+    Instance.progress_slider=Instance.loading_panel.GetComponentInChildren<Slider>();
   } // End of Start
 
   // Load scene with delay.
@@ -155,7 +164,7 @@ public class LevelManager:MonoBehaviour
   } // End of SceneLoadWithDelay
 
   // Load next level with delay.
-  private IEnumerator LvlLoadNextWithDelay(float delay)
+  private IEnumerator LvlLoadNextWithDelay(float delay, bool is_async)
   {
     // If current level is last.
     if((int)Instance.cur_lvl==Lvls.GetNames(typeof(Lvls)).Length-1)
@@ -169,8 +178,34 @@ public class LevelManager:MonoBehaviour
     yield return new WaitForSeconds(delay);
     // Actualize current level.
     Instance.cur_lvl++;
-    // Load next level.
-    SceneManager.LoadScene(LvlNameDecode(Instance.cur_lvl));
+    // If asynchronouse mode.
+    if(is_async)
+    {
+      // Load next level.
+      AsyncOperation oper = SceneManager.LoadSceneAsync(LvlNameDecode(Instance.cur_lvl));
+      // Activate loading panel.
+      Instance.loading_panel.SetActive(true);
+      // Reset slider progress.
+      Instance.progress_slider.value=0.0F;
+      // Loop until operation is done.
+      while(!oper.isDone)
+      {
+        // Compute real progress (Unity always reserve '0.1' for activation stage, so it's better to ommit that value).  
+        float progress = Mathf.Clamp01(oper.progress/0.9F);
+        // Change slider progress.
+        Instance.progress_slider.value=progress;
+        // Yield until next frame.
+        yield return null;
+      }
+      // Disable loading panel.
+      Instance.loading_panel.SetActive(false);
+    }
+    // If not asynchronouse mode.
+    else
+    {
+      // Load next level.
+      SceneManager.LoadScene(LvlNameDecode(Instance.cur_lvl));
+    }
   } // End of LvlLoadNextWithDelay
 
   // Decode scene name.

@@ -26,7 +26,7 @@ public class BloodManager : MonoBehaviour
   public void BloodStart(int damage)
   {
     this.damage_audio.Play();
-    this.blood_controller.Attack(damage);   
+    this.blood_controller.Attack(damage);  
   } // End of BloodStart
 
   #endregion

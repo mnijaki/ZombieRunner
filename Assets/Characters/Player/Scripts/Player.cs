@@ -31,18 +31,6 @@ public class Player : MonoBehaviour
   [SerializeField]
   [Tooltip("Helicopter prefab")]
   private Heli heli_prefab;
-  // Helicopter starting point.
-  [SerializeField]
-  [Tooltip("Helicopter starting point")]
-  private Transform heli_starting_point;
-  // Player weapon game object.
-  [SerializeField]
-  [Tooltip("Player weapon game object")]
-  private GameObject weapon_go;
-  // Weapon aim.
-  [SerializeField]
-  [Tooltip("Weapon aim")]
-  private GameObject weapon_aim;
 
   #endregion
 
@@ -57,9 +45,13 @@ public class Player : MonoBehaviour
   // Player voice.
   private PlayerVoice player_voice;
   // Player health.
-  private PlayerHealth health;  
+  private PlayerHealth health;
+  // Player weapon game object.
+  private GameObject weapon_go;
   // Player weapon.
   private Weapon weapon;
+  // Weapon aim.
+  private GameObject weapon_aim;
   // First person controller.
   private FirstPersonController fpc;
   // Flag if landing area was found.
@@ -96,7 +88,7 @@ public class Player : MonoBehaviour
   // Respawn player at random spawn point.
   public void Respawn()
   {
-    // Enable player controler (was disabled so he cannot move while level info was being showed).
+    // Enable player controler (was disabled for purpose of not moving while level info was being showed).
     this.GetComponent<FirstPersonController>().enabled=true;
     // Respawn player at spawn point. 
     this.transform.position=this.spawn_points[Random.Range(1,this.spawn_points.Length)].transform.position;
@@ -126,8 +118,12 @@ public class Player : MonoBehaviour
     this.player_voice=this.transform.Find("PlayerVoice").GetComponent<PlayerVoice>();
     // Get health.
     this.health=this.GetComponent<PlayerHealth>();
+    // Get weapon game object.
+    this.weapon_go=GameObject.FindGameObjectWithTag("weapon");
     // Get weapon.
     this.weapon=this.weapon_go.GetComponent<Weapon>();
+    // Get weapon aim.
+    this.weapon_aim=GameObject.FindGameObjectWithTag("weapon_aim");
     // Get first person controller.
     this.fpc=this.GetComponent<FirstPersonController>();
 } // End of Start
@@ -205,7 +201,10 @@ public class Player : MonoBehaviour
     // Wait for 'time' seconds.
     yield return new WaitForSeconds(delay);
     // Instantiate helicopter.
-    Instantiate(this.heli_prefab,this.heli_starting_point.position,Quaternion.identity,this.transform.parent);
+    Instantiate(this.heli_prefab,
+                GameObject.FindGameObjectWithTag("heli_starting_point").transform.position,
+                Quaternion.identity,
+                this.transform.parent);
     // Send message to game manager that helicopter was called.
     GameManager.Instance.OnHeliWasCalled();
   } // End of HeliCallWithDelay

@@ -37,4 +37,11 @@ public class Readme : MonoBehaviour
   //  • https://www.youtube.com/watch?v=adcKX1c-kag
   //  • check if weapon is scope able
   // • Add enemy death animation
+  // • Add porjectiles, burst fire, if waeapon changed, change weapon type, change laser draw duration, weapon_end...
+  // • make function that display info if weapon was changed (weapon type)
+  // • player cannot go to water   
+  //  • player drowned sound
+  //  • go to lose screen
+  // • show radio icon when radio is playing
+  // add time to heli landing
 }

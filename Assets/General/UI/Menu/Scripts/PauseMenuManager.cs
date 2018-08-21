@@ -57,8 +57,8 @@ public class PauseMenuManager : MonoBehaviour
   Dictionary<AudioSource,bool> audios_info = new Dictionary<AudioSource,bool>();
   // Player camera.
   private GameObject player_camera_go;  
-  // Mini map.
-  private GameObject mini_map;
+  // HUD.
+  private GameObject hud;
   // Weapon aim.
   private GameObject weapon_aim;
   // Flag if game is paused.
@@ -84,11 +84,11 @@ public class PauseMenuManager : MonoBehaviour
     {
       return;
     }
-    // If mini map is null.
-    if(Instance.mini_map==null)
+    // If HUD is null.
+    if(Instance.hud==null)
     {
-      // Get mini map.
-      Instance.mini_map=GameObject.FindGameObjectWithTag("mini_map");
+      // Get HUD.
+      Instance.hud=GameObject.FindGameObjectWithTag("hud");
     }
     // If weapon aim is null.
     if(Instance.weapon_aim==null)
@@ -104,22 +104,22 @@ public class PauseMenuManager : MonoBehaviour
     // Change flag.
     Instance.is_paused=true;
     // Get initial time scale.
-    this.initial_time_scale = Time.timeScale;
+    Instance.initial_time_scale = Time.timeScale;
     // Get initial fixed delta time.
-    this.initial_fixed_delta_time = Time.fixedDeltaTime;
+    Instance.initial_fixed_delta_time = Time.fixedDeltaTime;
     // Puase game time.
     Time.timeScale=0.0F;
     Time.fixedDeltaTime = 0;
-    // If mini map is not null (could not be activated yet).
-    if(Instance.mini_map!=null)
+    // If HUD is not null (could not be activated yet).
+    if(Instance.hud!=null)
     {
-      // Hide mini map.
-      this.mini_map.SetActive(false);
+      // Disable HUD.
+      Instance.hud.SetActive(false);
     }
     // If weapon aim is not null (could not be activated yet).
     if(Instance.weapon_aim!=null)
     {
-      // Deactivate weapon aim.
+      // Disable weapon aim.
       Instance.weapon_aim.SetActive(false);
     }
     // Unlock mouse.
@@ -211,18 +211,18 @@ public class PauseMenuManager : MonoBehaviour
     // If weapon aim is not null (could not be activated yet).
     if(Instance.weapon_aim!=null)
     {
-      // Activate weapon aim.
+      // Enable weapon aim.
       Instance.weapon_aim.SetActive(true);
     }
-    // If mini map is not null (could not be activated yet).
-    if(Instance.mini_map!=null)
+    // If HUD is not null (could not be activated yet).
+    if(Instance.hud!=null)
     {
-      // Show mini map.
-      this.mini_map.SetActive(true);
+      // Enable HUD.
+      Instance.hud.SetActive(true);
     }
     // Unpause game time.
-    Time.fixedDeltaTime = this.initial_fixed_delta_time;
-    Time.timeScale=this.initial_time_scale;
+    Time.fixedDeltaTime = Instance.initial_fixed_delta_time;
+    Time.timeScale=Instance.initial_time_scale;
     // Change flag.
     Instance.is_paused=false;
   } // End of OnContinue  

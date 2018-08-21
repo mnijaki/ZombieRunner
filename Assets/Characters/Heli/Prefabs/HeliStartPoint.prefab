@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23618744862999520}
   m_Layer: 0
   m_Name: HeliStartPoint
-  m_TagString: Untagged
+  m_TagString: heli_starting_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

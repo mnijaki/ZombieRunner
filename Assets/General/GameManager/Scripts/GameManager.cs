@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
-  // Single static instance of GameManager (Singelton pattern).
+  // Single static instance of 'GameManager' (Singelton pattern).
   public static GameManager Instance
   {
     get
@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
     
-  // Player.
-  [SerializeField]
-  [Tooltip("Player")]
-  private Player player;
   // Landing area prefab.
   [SerializeField]
   [Tooltip("Landing area prefab")]
@@ -51,23 +47,12 @@ public class GameManager : MonoBehaviour
   [SerializeField]
   [Range(0.0F,15.0F)]
   [Tooltip("Time of enemies to spawn at start of the level")]  
-  private int enemies_time_to_spawn=3;
-  // Fade panel.
-  [SerializeField]
-  [Tooltip("Fade panel")]
-  private GameObject fade_panel;
-  // Level info text.
-  [SerializeField]
-  [Tooltip("Level info text")]
-  private GameObject lvl_info_txt;
-  // Mini map.
-  [SerializeField]
-  [Tooltip("Mini map")]
-  private GameObject mini_map;
+  private int enemies_time_to_spawn=3;    
+  // TO_DO: Currently not implemented yet.
   // Enemy body dissapear time.
   [SerializeField]
   [Range(0.0F,30.0F)]
-  [Tooltip("Enemy body dissapear time.")]
+  [Tooltip("Enemy body dissapear time")]
   private float enemy_body_dissapear_time=5.0F;
 
   #endregion
@@ -78,14 +63,22 @@ public class GameManager : MonoBehaviour
   // ---------------------------------------------------------------------------------------------------------------------
   #region
 
+  // Single static instance of 'GameManager' (Singelton pattern).
+  private static GameManager _instance;  
+  // Player.
+  private Player player;
   // Player voice.
   private PlayerVoice player_voice;
-  // Single static instance of GameManager (Singelton pattern).
-  private static GameManager _instance;  
   // Array of enemies spawn points.
   private Transform[] enemies_spawn_points;
   // Parent of the enemies.
   private Transform enemies_parent;
+  // Fade panel.
+  private GameObject fade_panel;
+  // Level info text.
+  private GameObject lvl_info_txt;
+  // HUD.
+  private GameObject hud;
   // Flag if there will be change of level.
   private bool is_lvl_changing=false;
 
@@ -114,7 +107,7 @@ public class GameManager : MonoBehaviour
   public void OnPlayerBoardedHeli(float heli_hor_movement_time)
   {
     // End level.
-    StartCoroutine(LvlEnd(heli_hor_movement_time+2.0F));
+    StartCoroutine(LvlEnd(heli_hor_movement_time+2.0F,false));
   } // End of OnPlayerBoardedHeli
 
   // Event - on player death.
@@ -124,26 +117,12 @@ public class GameManager : MonoBehaviour
     Instance.is_lvl_changing=true;
     // Yield (this yield exist to give necessery time to the calling script to perform it duties).
     yield return new WaitForSeconds(duration);
-    // ------------------------------------------------------------------
     // Fade out.
-    // ------------------------------------------------------------------
-    // Actualize duration.
-    duration=3.0F;
-    // Fade out.
-    StartCoroutine(FadeOut(duration));
-    // ------------------------------------------------------------------
-    // Wait.
-    // ------------------------------------------------------------------
+    StartCoroutine(FadeOut(3.0F));
     // Yield (synchronizing with fade).
-    yield return new WaitForSeconds(duration);
-    // ------------------------------------------------------------------
-    // Unlock cursor.
-    // ------------------------------------------------------------------
+    yield return new WaitForSeconds(3.0F);
     // Unlock cursor.
     Instance.player.GetComponent<FirstPersonController>().MouseLookGet().SetCursorLock(false);
-    // ------------------------------------------------------------------
-    // Load lose screen.
-    // ------------------------------------------------------------------
     // Load lose screen.
     LevelManager.Instance.LoseLoad(0.0F);
   } // End of OnPlayerDeath
@@ -154,14 +133,12 @@ public class GameManager : MonoBehaviour
     // Yield (this yield exist to give necessery time to the calling script to perform it duties).
     yield return new WaitForSeconds(duration);
     // Yield for time of dissapearing enemy body.
-    yield return new WaitForSeconds(this.enemy_body_dissapear_time);
+    yield return new WaitForSeconds(Instance.enemy_body_dissapear_time);
+    // TO_DO: pooling (spawn at point) with correct reset of enemy values (eg.nav mesh, etc).
     // Destroy enemy game object.
     GameObject.Destroy(enemy);
     // Spawn new enemy.
     EnemySpawn();
-
-    // TO_DO: pooling (spawn at point) with correct reset of enemy values (eg.nav mesh, etc).
-
   } // End of OnEnemyDeath
 
   #endregion
@@ -188,8 +165,16 @@ public class GameManager : MonoBehaviour
   // Initialize.
   private void Start()
   {
+    // Get player.
+    Instance.player=GameObject.FindObjectOfType<Player>();
     // Get player voice.
     Instance.player_voice=GameObject.FindObjectOfType<PlayerVoice>();
+    // Get fade panel.
+    Instance.fade_panel=GameObject.FindGameObjectWithTag("fade_panel");
+    // Get level info txt.
+    Instance.lvl_info_txt=Instance.fade_panel.transform.GetChild(0).gameObject;
+    // Get HUD.
+    Instance.hud=GameObject.FindGameObjectWithTag("hud");
     // Start game.
     StartCoroutine(StartGame(10.0F));    
   } // End of Start
@@ -197,7 +182,7 @@ public class GameManager : MonoBehaviour
   // Update.
   private void Update()
   {
-    // If user hit 'Escape' button and level is not changing (becouse interrupting 
+    // If user hit 'Escape' button and level is not changing (because interrupting 
     // loading of next level could lead to some bugs).
     if((Input.GetKeyDown(KeyCode.Escape))&&(!Instance.is_lvl_changing))
     {
@@ -252,49 +237,50 @@ public class GameManager : MonoBehaviour
   private void EnemySpawn()
   {
     Instantiate(Instance.enemies_prefabs[Random.Range(0,Instance.enemies_prefabs.Length)],
-                  Instance.enemies_spawn_points[Random.Range(0,Instance.enemies_spawn_points.Length)].position,
-                  Quaternion.identity,
-                  Instance.enemies_parent).GetComponent<AICharacterControl>().target=Instance.player.transform;
+                Instance.enemies_spawn_points[Random.Range(0,Instance.enemies_spawn_points.Length)].position,
+                Quaternion.identity,
+                Instance.enemies_parent).GetComponent<AICharacterControl>().target=Instance.player.transform;
   } // End of EnemySpawn
 
   // Start game.
   private IEnumerator StartGame(float duration)
   {
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Level info.
-    // ---------------------------------------------------------------------------------------------------------------------
+    // Disable HUD for duration of fade.
+    Instance.hud.SetActive(false);
+    // Disable player weapon.
+    Instance.player.WeaponDisable();
     // Yield to show level info.
     yield return new WaitForSeconds(4);
     // Hide level info text.
     Instance.lvl_info_txt.SetActive(false);
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Instantiate game objects.
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Initialization of landing area.
+    // Initialize landing area.
     LandingAreaInit();
-    // Initialization of enemies.
+    // Initialize enemies.
     EnemiesInit();
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Respawn player.
-    // ---------------------------------------------------------------------------------------------------------------------
     // Respawn player at random spawn point.
     Instance.player.Respawn();
     // Play what happened clip.
     Instance.player_voice.VoicePlay(Instance.player_voice.what_happened_clip,0);
-    // ---------------------------------------------------------------------------------------------------------------------
     // Fade in.
-    // --------------------------------------------------------------------------------------------------------------------- 
-    // Time left.
-    float time_left =0.0F;
+    StartCoroutine(FadeIn(duration));
+  } // End of StartGame
+
+  // Fade in.
+  private IEnumerator FadeIn(float duration)
+  {
+    // Enable fade panel.
+    Instance.fade_panel.SetActive(true);
+    // Progress.
+    float progress = 0.0F;
     // Create black color with alpha=1;
-    Color black=new Color(0,0,0,255);
+    Color black = new Color(0,0,0,255);
     // Loop until time is reached.
-    while(time_left<1)
-    {      
+    while(progress<1)
+    {
       // Actualize time left.
-      time_left+=Time.deltaTime/duration;
+      progress+=Time.deltaTime/duration;
       // Actualize alpha color.
-      black.a=1-time_left;
+      black.a=1-progress;
       // Set color of panel.
       Instance.fade_panel.GetComponent<Image>().color=black;
       // Yield
@@ -302,20 +288,19 @@ public class GameManager : MonoBehaviour
     }
     // Disable fade panel.
     Instance.fade_panel.SetActive(false);
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Show mini map and weapon.
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Show mini map.
-    this.mini_map.SetActive(true);
     // Enable player weapon.
-    this.player.WeaponEnable();
-  } // End of StartGame
+    Instance.player.WeaponEnable();
+    // Enable HUD.
+    Instance.hud.SetActive(true);
+  } // End of FadeIn
 
   // Fade out.
   private IEnumerator FadeOut(float duration)
   {
-    // Hide mini map.
-    this.mini_map.SetActive(false);
+    // Disable hud.
+    Instance.hud.SetActive(false);
+    // Disable player weapon.
+    Instance.player.WeaponDisable();
     // Enable fade panel.
     Instance.fade_panel.SetActive(true);
     // Progress.
@@ -337,7 +322,7 @@ public class GameManager : MonoBehaviour
   } // End of FadeOut
 
   // End level.
-  private IEnumerator LvlEnd(float duration)
+  private IEnumerator LvlEnd(float duration, bool is_async)
   {
     // Change flag.
     Instance.is_lvl_changing=true;
@@ -348,7 +333,7 @@ public class GameManager : MonoBehaviour
     // Unlock cursor.
     Instance.player.GetComponent<FirstPersonController>().MouseLookGet().SetCursorLock(false);
     // Load next level.
-    LevelManager.Instance.LvlLoadNext(0.0F);
+    LevelManager.Instance.LvlLoadNext(0.0F,is_async);
   } // End of LvlEnd
 
   #endregion
