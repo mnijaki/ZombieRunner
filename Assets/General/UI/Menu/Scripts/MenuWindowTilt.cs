@@ -9,7 +9,6 @@ public class MenuWindowTilt : MonoBehaviour
   #region
 
   // Range of window tilt.
-  [Range(0.0F,30.0F)]
   [Tooltip("Range of window tilt.")]
   public Vector2 range = new Vector2(5.0F,3.0F);
 

@@ -9,99 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1557055186544116}
+  m_RootGameObject: {fileID: 1317945767073236}
   m_IsPrefabParent: 1
---- !u!1 &1264656828559154
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4433388212808906}
-  - component: {fileID: 114808095472399572}
-  m_Layer: 0
-  m_Name: FrictionFlowRain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1310453281608078
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4496766157432642}
-  - component: {fileID: 114713629396374742}
-  m_Layer: 0
-  m_Name: SimpleRain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1448047344778656
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4379714132998736}
-  - component: {fileID: 20758282982055870}
-  - component: {fileID: 114076223216961426}
-  m_Layer: 0
-  m_Name: Splatter Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1557055186544116
+--- !u!1 &1201118385485060
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4439788829436358}
-  - component: {fileID: 82157792255132550}
-  - component: {fileID: 114091244431286070}
-  m_Layer: 0
-  m_Name: BloodManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1612534137456618
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4997880230209570}
-  - component: {fileID: 114560844099891124}
-  m_Layer: 0
-  m_Name: StaticRain (FullScreen)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1711738126175960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4552449108603814}
-  - component: {fileID: 114539382115685666}
+  - component: {fileID: 4682599323243450}
+  - component: {fileID: 114906456131018962}
   m_Layer: 0
   m_Name: BloodRain
   m_TagString: Untagged
@@ -109,16 +27,98 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1907771389837414
+--- !u!1 &1201659513780482
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4636007343455282}
-  - component: {fileID: 20280274576266052}
-  - component: {fileID: 114482103617394574}
+  - component: {fileID: 4793400641300090}
+  - component: {fileID: 114912839902194894}
+  m_Layer: 0
+  m_Name: StaticRain (FullScreen)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1317945767073236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4396592282067118}
+  - component: {fileID: 82020639337922232}
+  - component: {fileID: 114009036925063266}
+  m_Layer: 0
+  m_Name: BloodManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1416155193947036
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4393988870948354}
+  - component: {fileID: 114842177425390642}
+  m_Layer: 0
+  m_Name: SimpleRain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1766909664382846
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4851205227244590}
+  - component: {fileID: 20191400319126446}
+  - component: {fileID: 114987652205544510}
+  m_Layer: 0
+  m_Name: Splatter Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1785048239993786
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4610411059046102}
+  - component: {fileID: 114838110161600020}
+  m_Layer: 0
+  m_Name: FrictionFlowRain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1969328589160522
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4876329856269626}
+  - component: {fileID: 20605067692182388}
+  - component: {fileID: 114842569052096944}
   m_Layer: 0
   m_Name: Frame Blood Camera
   m_TagString: Untagged
@@ -126,109 +126,109 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4379714132998736
+--- !u!4 &4393988870948354
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1448047344778656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4496766157432642}
-  - {fileID: 4433388212808906}
-  m_Father: {fileID: 4552449108603814}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4433388212808906
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264656828559154}
+  m_GameObject: {fileID: 1416155193947036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4379714132998736}
-  m_RootOrder: 1
+  m_Father: {fileID: 4851205227244590}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4439788829436358
+--- !u!4 &4396592282067118
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557055186544116}
+  m_GameObject: {fileID: 1317945767073236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4552449108603814}
+  - {fileID: 4682599323243450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4496766157432642
+--- !u!4 &4610411059046102
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310453281608078}
+  m_GameObject: {fileID: 1785048239993786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4379714132998736}
-  m_RootOrder: 0
+  m_Father: {fileID: 4851205227244590}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4552449108603814
+--- !u!4 &4682599323243450
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1711738126175960}
+  m_GameObject: {fileID: 1201118385485060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2000, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4636007343455282}
-  - {fileID: 4379714132998736}
-  m_Father: {fileID: 4439788829436358}
+  - {fileID: 4876329856269626}
+  - {fileID: 4851205227244590}
+  m_Father: {fileID: 4396592282067118}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4636007343455282
+--- !u!4 &4793400641300090
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1907771389837414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4997880230209570}
-  m_Father: {fileID: 4552449108603814}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4997880230209570
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612534137456618}
+  m_GameObject: {fileID: 1201659513780482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4636007343455282}
+  m_Father: {fileID: 4876329856269626}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20280274576266052
+--- !u!4 &4851205227244590
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766909664382846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4393988870948354}
+  - {fileID: 4610411059046102}
+  m_Father: {fileID: 4682599323243450}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4876329856269626
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969328589160522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4793400641300090}
+  m_Father: {fileID: 4682599323243450}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20191400319126446
 Camera:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1907771389837414}
+  m_GameObject: {fileID: 1766909664382846}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 3
@@ -259,12 +259,12 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!20 &20758282982055870
+--- !u!20 &20605067692182388
 Camera:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1448047344778656}
+  m_GameObject: {fileID: 1969328589160522}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 3
@@ -295,12 +295,12 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!82 &82157792255132550
+--- !u!82 &82020639337922232
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557055186544116}
+  m_GameObject: {fileID: 1317945767073236}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -375,168 +375,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114076223216961426
+--- !u!114 &114009036925063266
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1448047344778656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2899542295348408e9791e324df38f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RenderQueue: 3000
-  Alpha: 1
-  GlobalWind: {x: 0, y: 0}
-  GForceVector: {x: 0, y: -1, z: 0}
-  ShaderType: 0
-  distance: 8.3
-  VRMode: 0
---- !u!114 &114091244431286070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557055186544116}
+  m_GameObject: {fileID: 1317945767073236}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3e8920379b22540a19b3d91cf493d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114482103617394574
+--- !u!114 &114838110161600020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1907771389837414}
+  m_GameObject: {fileID: 1785048239993786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2899542295348408e9791e324df38f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RenderQueue: 3000
-  Alpha: 1
-  GlobalWind: {x: 0, y: 0}
-  GForceVector: {x: 0, y: -1, z: 0}
-  ShaderType: 0
-  distance: 8.3
-  VRMode: 0
---- !u!114 &114539382115685666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1711738126175960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ed7010dce92fa46935fbe6c9b455b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FrameBloodCamera: {fileID: 114482103617394574}
-  SplatterBloodCamera: {fileID: 114076223216961426}
-  HP: 100
-  FrameEffectInterval: 1
-  Smooth: 2
-  hpHigh:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0.6991115
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0.6991115
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  hpMid:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -0.004859682
-      value: 0.70047694
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.5041095
-      value: 0.7266993
-      inSlope: -0.000020292957
-      outSlope: -0.000020292957
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9930812
-      value: 0.70029175
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  hpLow:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -0.004166667
-      value: 0.9029443
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.19095525
-      value: 0.9028782
-      inSlope: -0.008796731
-      outSlope: -0.008796731
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.20027645
-      value: 1.0982363
-      inSlope: -0.009536743
-      outSlope: -0.009536743
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.49447304
-      value: 0.9023232
-      inSlope: -0.0026422027
-      outSlope: -0.0026422027
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.741129
-      value: 0.90384895
-      inSlope: 0.0027417196
-      outSlope: 0.0027417196
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.7467478
-      value: 1.0993448
-      inSlope: -0.0046514897
-      outSlope: -0.0046514897
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0.90253866
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!114 &114560844099891124
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612534137456618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773d7a83a074bf44e8d1dfb79b000802, type: 3}
+  m_Script: {fileID: 11500000, guid: 447fcd0df500340c397572fe22b48f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Depth: 3
@@ -547,12 +405,78 @@ MonoBehaviour:
   GForceVector: {x: 0, y: -1, z: 0}
   Variables:
     AutoStart: 0
-    FullScreen: 1
-    OverlayColor: {r: 1, g: 0, b: 0, a: 1}
-    OverlayTexture: {fileID: 2800000, guid: 4997870a5ee7d0741911049125941c2d, type: 3}
-    NormalMap: {fileID: 2800000, guid: 64926e2d4f32ac94c95c940d9b5b8908, type: 3}
-    fadeTime: 0.82
-    FadeinCurve:
+    PlayOnce: 1
+    OverlayColor: {r: 1, g: 0, b: 0, a: 0.603}
+    NormalMap: {fileID: 2800000, guid: 7c66e71cc2774e14a91043b23acd51c1, type: 3}
+    OverlayTexture: {fileID: 2800000, guid: d4dda2720c28b0e48a8c9087bab93444, type: 3}
+    FrictionMap: {fileID: 2800000, guid: b78240cfb5d9b854ea43a15802177238, type: 3}
+    Duration: 0.09
+    Delay: 0
+    MaxRainSpawnCount: 3
+    SpawnOffsetY: 0.8
+    LifetimeMin: 3.39
+    LifetimeMax: 3.57
+    EmissionRateMax: 16
+    EmissionRateMin: 15
+    Resolution: 500
+    AlphaOverLifetime:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 12.375196
+        outSlope: 12.375196
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.10311377
+        value: 0.7779504
+        inSlope: 2.874434
+        outSlope: 2.874434
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5122396
+        value: 0.4777255
+        inSlope: -1.6909826
+        outSlope: -1.6909826
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9875
+        value: 0.00000011920929
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    SizeMinX: 0.3
+    SizeMaxX: 0.3
+    TrailWidth:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 17.012657
+        outSlope: 17.012657
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.09255208
+        value: 0.9999999
+        inSlope: 0.000000091171515
+        outSlope: 0.000000091171515
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9875
+        value: 0.00000011920929
+        inSlope: -3.1329067
+        outSlope: -3.1329067
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    DistortionValue: 117.1
+    DistortionOverLifetime:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
@@ -562,28 +486,80 @@ MonoBehaviour:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 1
-        value: 1
+        time: 0.113125026
+        value: 1.0062499
+        inSlope: 0.000000091171515
+        outSlope: 0.000000091171515
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9875
+        value: 0.00000011920929
+        inSlope: -2.3206732
+        outSlope: -2.3206732
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    ReliefValue: 0.725
+    ReliefOverLifetime:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1625
+        value: 0.9999999
+        inSlope: 0.000000091171515
+        outSlope: 0.000000091171515
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9875
+        value: 0.00000011920929
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    SizeX: 4.34
-    SizeY: 4.89
-    SpawnOffsetX: 0
-    SpawnOffsetY: 0
-    DistortionValue: 54.6
-    ReliefValue: 0
     Blur: 0
-    Darkness: 0.8
---- !u!114 &114713629396374742
+    BlurOverLifetime:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1625
+        value: 0.9999999
+        inSlope: 0.000000091171515
+        outSlope: 0.000000091171515
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9875
+        value: 0.00000011920929
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    Darkness: 0.82
+    InitialVelocity: 33
+    AccelerationMin: -1.61
+    AccelerationMax: -0.92
+--- !u!114 &114842177425390642
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310453281608078}
+  m_GameObject: {fileID: 1416155193947036}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce59bd3aaa8de8c4e858fd14ca2c9ea5, type: 3}
@@ -792,15 +768,139 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     Darkness: 1
---- !u!114 &114808095472399572
+--- !u!114 &114842569052096944
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264656828559154}
+  m_GameObject: {fileID: 1969328589160522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447fcd0df500340c397572fe22b48f3d, type: 3}
+  m_Script: {fileID: 11500000, guid: fc2899542295348408e9791e324df38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RenderQueue: 3000
+  Alpha: 1
+  GlobalWind: {x: 0, y: 0}
+  GForceVector: {x: 0, y: -1, z: 0}
+  ShaderType: 0
+  distance: 8.3
+  VRMode: 0
+--- !u!114 &114906456131018962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201118385485060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ed7010dce92fa46935fbe6c9b455b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrameBloodCamera: {fileID: 114842569052096944}
+  SplatterBloodCamera: {fileID: 114987652205544510}
+  HP: 100
+  FrameEffectInterval: 1
+  Smooth: 2
+  hpHigh:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.6991115
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.6991115
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  hpMid:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.004859682
+      value: 0.70047694
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5041095
+      value: 0.7266993
+      inSlope: -0.000020292957
+      outSlope: -0.000020292957
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9930812
+      value: 0.70029175
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  hpLow:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.004166667
+      value: 0.9029443
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.19095525
+      value: 0.9028782
+      inSlope: -0.008796731
+      outSlope: -0.008796731
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.20027645
+      value: 1.0982363
+      inSlope: -0.009536743
+      outSlope: -0.009536743
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.49447304
+      value: 0.9023232
+      inSlope: -0.0026422027
+      outSlope: -0.0026422027
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.741129
+      value: 0.90384895
+      inSlope: 0.0027417196
+      outSlope: 0.0027417196
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.7467478
+      value: 1.0993448
+      inSlope: -0.0046514897
+      outSlope: -0.0046514897
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.90253866
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114912839902194894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201659513780482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773d7a83a074bf44e8d1dfb79b000802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Depth: 3
@@ -811,78 +911,12 @@ MonoBehaviour:
   GForceVector: {x: 0, y: -1, z: 0}
   Variables:
     AutoStart: 0
-    PlayOnce: 1
-    OverlayColor: {r: 1, g: 0, b: 0, a: 0.603}
-    NormalMap: {fileID: 2800000, guid: 7c66e71cc2774e14a91043b23acd51c1, type: 3}
-    OverlayTexture: {fileID: 2800000, guid: d4dda2720c28b0e48a8c9087bab93444, type: 3}
-    FrictionMap: {fileID: 2800000, guid: b78240cfb5d9b854ea43a15802177238, type: 3}
-    Duration: 0.09
-    Delay: 0
-    MaxRainSpawnCount: 3
-    SpawnOffsetY: 0.8
-    LifetimeMin: 3.39
-    LifetimeMax: 3.57
-    EmissionRateMax: 16
-    EmissionRateMin: 15
-    Resolution: 500
-    AlphaOverLifetime:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 12.375196
-        outSlope: 12.375196
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.10311377
-        value: 0.7779504
-        inSlope: 2.874434
-        outSlope: 2.874434
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.5122396
-        value: 0.4777255
-        inSlope: -1.6909826
-        outSlope: -1.6909826
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.9875
-        value: 0.00000011920929
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-    SizeMinX: 0.3
-    SizeMaxX: 0.3
-    TrailWidth:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 17.012657
-        outSlope: 17.012657
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.09255208
-        value: 0.9999999
-        inSlope: 0.000000091171515
-        outSlope: 0.000000091171515
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.9875
-        value: 0.00000011920929
-        inSlope: -3.1329067
-        outSlope: -3.1329067
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-    DistortionValue: 117.1
-    DistortionOverLifetime:
+    FullScreen: 1
+    OverlayColor: {r: 1, g: 0, b: 0, a: 1}
+    OverlayTexture: {fileID: 2800000, guid: 4997870a5ee7d0741911049125941c2d, type: 3}
+    NormalMap: {fileID: 2800000, guid: 64926e2d4f32ac94c95c940d9b5b8908, type: 3}
+    fadeTime: 0.82
+    FadeinCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
@@ -892,71 +926,37 @@ MonoBehaviour:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.113125026
-        value: 1.0062499
-        inSlope: 0.000000091171515
-        outSlope: 0.000000091171515
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.9875
-        value: 0.00000011920929
-        inSlope: -2.3206732
-        outSlope: -2.3206732
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-    ReliefValue: 0.725
-    ReliefOverLifetime:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.1625
-        value: 0.9999999
-        inSlope: 0.000000091171515
-        outSlope: 0.000000091171515
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.9875
-        value: 0.00000011920929
+        time: 1
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
+    SizeX: 4.34
+    SizeY: 4.89
+    SpawnOffsetX: 0
+    SpawnOffsetY: 0
+    DistortionValue: 54.6
+    ReliefValue: 0
     Blur: 0
-    BlurOverLifetime:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.1625
-        value: 0.9999999
-        inSlope: 0.000000091171515
-        outSlope: 0.000000091171515
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.9875
-        value: 0.00000011920929
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 0
-    Darkness: 0.82
-    InitialVelocity: 33
-    AccelerationMin: -1.61
-    AccelerationMax: -0.92
+    Darkness: 0.8
+--- !u!114 &114987652205544510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766909664382846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2899542295348408e9791e324df38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RenderQueue: 3000
+  Alpha: 1
+  GlobalWind: {x: 0, y: 0}
+  GForceVector: {x: 0, y: -1, z: 0}
+  ShaderType: 0
+  distance: 8.3
+  VRMode: 0

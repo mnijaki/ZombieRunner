@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1652970368622992}
+  m_RootGameObject: {fileID: 1838394796646032}
   m_IsPrefabParent: 1
---- !u!1 &1652970368622992
+--- !u!1 &1838394796646032
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4325631729483282}
-  - component: {fileID: 114121629049282348}
+  - component: {fileID: 4290135533641484}
+  - component: {fileID: 114934635175599830}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4325631729483282
+--- !u!4 &4290135533641484
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1652970368622992}
+  m_GameObject: {fileID: 1838394796646032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,27 +40,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114121629049282348
+--- !u!114 &114934635175599830
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1652970368622992}
+  m_GameObject: {fileID: 1838394796646032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b6b60eacb6e50d47b8ab7b5e986aa9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_paused: 0
-  level_manager: {fileID: 0}
-  player: {fileID: 0}
-  player_voice: {fileID: 0}
   landing_area_prefab: {fileID: 1079701167053426, guid: 12bed78870476a74081ce4e3dd6c1a5b,
     type: 2}
   enemies_prefabs:
   - {fileID: 114491909023006442, guid: cf53c734b50cd7248ac5bf05091a085c, type: 2}
-  enemies_parent: {fileID: 0}
-  enemies_to_spawn: 7
+  enemies_to_spawn: 20
   enemies_time_to_spawn: 4
-  fade_panel: {fileID: 0}
-  lvl_info_txt: {fileID: 0}
+  enemy_body_dissapear_time: 0
