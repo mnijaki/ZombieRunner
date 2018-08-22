@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   min_speed: 1.5
-  max_speed: 4.5
+  max_speed: 3.5
   min_angular_speed: 100
   max_angular_speed: 160
   min_acceleration: 7
