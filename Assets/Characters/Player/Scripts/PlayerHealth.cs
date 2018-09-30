@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
     // Decrease health.
     this.health-=damage;
     // Actualize HUD health.
-    HudIcons.Instance.HealthSet((float)this.health/this.initial_armor);
+    HudIcons.Instance.HealthSet((float)this.health/this.initial_health);
     // Show blood effect.
     this.blood_manager.BloodStart(damage);
     // Start default shake of player camera.
